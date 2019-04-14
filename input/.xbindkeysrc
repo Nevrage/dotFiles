@@ -1,0 +1,5 @@
+"xdotool click 2"
+control+shift+c
+
+"xdotool Shift+Insert"
+control+shift+v

@@ -1,0 +1,29 @@
+Xft.dpi: 180
+XTerm*faceName: FuraCode Nerd Font
+XTerm*faceSize: 12
+XTerm*selectToClipboard: true
+XTerm*visualBell: false
+Xterm*Bell: false
+
+
+URxvt.font:xft: DejaVuSansMono Nerd Font
+
+rofi.width: 75
+rofi.columns: 1
+rofi.font: Noto Sans 30
+rofi.bw: 0
+rofi.padding: 200
+rofi.eh: 1
+rofi.separator-style: soli
+rofi.hide-scrollbar: true
+rofi.fullscreen: false
+rofi.fake-transparency: true
+rofi.show-icons: false
+
+Xcursor.size: 80
+
+XTerm.vt100.translations: #override \n\
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n\
+    Ctrl <Key> minus: smaller-vt-font() \n\
+    Ctrl <Key> plus: larger-vt-font()

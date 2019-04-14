@@ -1,0 +1,22 @@
+[general]
+ui = ttyui
+accounts = kws
+
+[Account kws]
+localrepository = kws-local
+remoterepository = kws-remote
+postsynchook = ~/newmail.sh
+
+[Repository kws-local]
+type = Maildir
+localfolders = ~/Mail/kws
+
+[Repository kws-remote]
+type = IMAP
+remoteuser = fullemail 
+remotepass = password 
+realdelete = no
+maxconnections = 10
+remotehost = 127.0.0.1
+remoteport = 1143
+ssl=no

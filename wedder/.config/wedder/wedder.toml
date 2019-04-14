@@ -1,0 +1,41 @@
+# available tags:
+#   <icon>
+#   <temperature_kelvin>
+#   <kelvin_max>
+#   <kelvin_min>
+#   <temperature_celsius>
+#   <celsius_max>
+#   <celsius_min>
+#   <temperature_fahrenheit>
+#   <fahrenheit_max>
+#   <fahrenheit_min>
+#   <pressure>
+#   <humidity>
+#   <wind_speed>
+#   <cloud_percentage>
+#   <sunrise>
+#   <sunset>
+# default: '<icon> <temperature_celsius>°C'
+format = '<icon> <temperature_celsius>°C Wind: <wind_speed>  //  <sunrise> - <sunset>'
+interval = 300
+
+[weather]
+provider = 'OpenWeatherMap'
+api_key = 'd00ebeef27c7a63bb8335fbf9e5fc020'
+
+
+
+[location]
+provider = 'Ip'
+
+[icons]
+clear_sky = ''
+few_clouds = ''
+clouds = ''
+many_clouds = ''
+rain_sun = ''
+rain = ''
+heavy_rain = ''
+thunderstorm = ''
+snow = ''
+mist = ''

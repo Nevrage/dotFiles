@@ -1,0 +1,16 @@
+defaults
+logfile ~/.msmtp.log
+account default
+host localhost
+port 1025
+protocol smtp
+from fullemail(?)
+#auth on
+user domain\username
+password password
+#auto_from off
+#tls off
+#tls on
+#tls_starttls on
+#tls_certcheck off
+auth login
