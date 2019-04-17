@@ -1,3 +1,4 @@
+if(interactive()){
 library(colorout)
 library(tidyverse)
 library(jsonlite)
@@ -43,6 +44,7 @@ setOutputColors256( normal = escaped[[3]],
                                        }
 
 makecolors()
+}
 cc <- function() cat(c("\033[2J","\033[0;0H"))
 
 rm(makecolors)
