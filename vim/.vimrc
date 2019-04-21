@@ -232,6 +232,7 @@ let cmdline_app           = {}
 let cmdline_external_term_cmd = "xterm -e '%s' &"
 let cmdline_follow_colorscheme = 1
 let cmdline_app['python'] = 'ptpython3'
+let cmdline_app['sh'] = 'bash'
 
 
 Plugin 'sirver/UltiSnips'"

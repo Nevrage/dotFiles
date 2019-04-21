@@ -198,6 +198,7 @@ new_window none
 # window_border 0
 for_window [class="mpv"] floating enable
 for_window [class="BME"] floating enable
+for_window [class="BME"] resize set 1200 1200
 for_window [class="mpv"] resize set 2400 1200
 for_window [class="mpv"] move position center
 

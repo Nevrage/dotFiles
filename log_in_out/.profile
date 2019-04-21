@@ -2,6 +2,10 @@
 
 export BROWSER="qutebrowser"
 export termbrowser="w3m"
+export PLAYER="mpv"
+export READER="zathura"
+export IMGVIEWER="feh"
+export HomeServer="home.ym"
 
 # jupyter lab  --NotebookApp.token=  & 
 export PATH="$PATH:$HOME/Scripts"
