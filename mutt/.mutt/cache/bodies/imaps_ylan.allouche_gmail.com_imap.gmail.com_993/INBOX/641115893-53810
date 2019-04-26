@@ -1,0 +1,141 @@
+Delivered-To: ylan.allouche@gmail.com
+Received: by 2002:a2e:8892:0:0:0:0:0 with SMTP id k18csp4321399lji;
+        Tue, 23 Apr 2019 16:33:54 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqyNddd6x3UeYOZ9hfR1fZzLQgyHWmTIDpifXkNraDXeMUx/gU0N6XCtlA3kRCCP+4EuBaKf
+X-Received: by 2002:a63:ff26:: with SMTP id k38mr27452195pgi.123.1556062434132;
+        Tue, 23 Apr 2019 16:33:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1556062434; cv=none;
+        d=google.com; s=arc-20160816;
+        b=PukeB0YQd1o1wE1Vxria2JRFibIsIqYuWit/9W5jZfupm2VrzgsriBiHP+MwOv+B6A
+         e3vy9YTFP/D9YEs16PrGcVSMeS1/Xs++009fOxSwFQ8b6FRqUbdJd7DGunIqj7P4Rob2
+         I0BZ3dvEsiyGqpE3V4iVDdYddplDI1g2KCi3zw11Kt+aK1DndwPyr6+TpzyJTEK47iMI
+         GCzMw3lyAcf9aiFQKgPV6VqHnRzivd6g03ozOYlXJ2G7/ZFelNaxRdkGiepeYGO7wvOm
+         l4x1InMqFYXgKqo8SnEZ9AZK1RrgieZU8h6Vm//mUvGvZ1RF6AkyUAMLK9Afw5vhG0HB
+         reBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-transfer-encoding:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from;
+        bh=jWUapnERIxyKRd43iZqExgcDvgU3r+0W22NabsNCMws=;
+        b=n+ivxiLAAztU0VUghysvxW4MI6b75bCLJs1/0WDeaFb0NFbl3GjIsGtFNLTmZwjKxW
+         bLYUTbobozOZmvoSBXkxXxBVkZBBGgX48EfTtHbr2snPa5lfR+Y7Lb/72yadr/yYP2S8
+         ImEFFUKMH9XiyRtP9ssaRDqMznvlf7geC9zr2Sie7yJ3u0QXuFLd9rCwf80TS7V4f2mj
+         B4+K5BowthxobBwLmpb2V0GLAMGxork4szX/kgN8SG8/Sk9sSQ9VZ6X4u+KbeUSfHWE+
+         b3MAPFlLs4DOayI/5bflNEr2jQkwdKrwLljin3w8BScakrHkAL7drj6wkxisHy2DyR8y
+         Kuog==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of deliae@supermicro.com designates 207.212.57.85 as permitted sender) smtp.mailfrom=DeliaE@supermicro.com
+Return-Path: <DeliaE@supermicro.com>
+Received: from MGB.supermicro.com (mgb.supermicro.com. [207.212.57.85])
+        by mx.google.com with ESMTPS id d23si18119474pfd.93.2019.04.23.16.33.53
+        for <ylan.allouche@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 23 Apr 2019 16:33:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of deliae@supermicro.com designates 207.212.57.85 as permitted sender) client-ip=207.212.57.85;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of deliae@supermicro.com designates 207.212.57.85 as permitted sender) smtp.mailfrom=DeliaE@supermicro.com
+Received: from pps.filterd (MGB.supermicro.com [127.0.0.1])
+	by MGB.supermicro.com (8.16.0.27/8.16.0.27) with SMTP id x3NNV8fE020942
+	for <ylan.allouche@gmail.com>; Tue, 23 Apr 2019 16:33:53 -0700
+Received: from ex2013-mbx3.supermicro.com (EX2013-MBX3.supermicro.com [10.2.1.46])
+	by MGB.supermicro.com with ESMTP id 2s031skapk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-SHA384 bits=256 verify=NOT)
+	for <ylan.allouche@gmail.com>; Tue, 23 Apr 2019 16:33:53 -0700
+Received: from EX2013-MBX2.supermicro.com (10.2.1.38) by
+ EX2013-MBX3.supermicro.com (10.2.1.46) with Microsoft SMTP Server (TLS) id
+ 15.0.1236.3; Tue, 23 Apr 2019 16:33:52 -0700
+Received: from EX2013-MBX2.supermicro.com ([::1]) by
+ Ex2013-MBX2.supermicro.com ([fe80::8d7c:480c:7001:7853%18]) with mapi id
+ 15.00.1236.000; Tue, 23 Apr 2019 16:33:52 -0700
+From: Delia Enos <DeliaE@supermicro.com>
+To: Ylan Allouche <ylan.allouche@gmail.com>
+CC: Michelle Nguyen <MichelleN@supermicro.com>
+Subject: RE: FW: SMC Repair Charge RMA: RI190204056 2nd Notice
+Thread-Topic: FW: SMC Repair Charge RMA: RI190204056 2nd Notice
+Thread-Index: AQHU4mRc4ocjLxdhe0+HBm5rceTH46Yc1JVggALsF3CADWxkAP//lzQQgAosWoCAAE9SYIAAjImA//+kxyCAAdGGgIAHkBowgAHyjYCAASsiwIAFsS2AgADyFZA=
+Date: Tue, 23 Apr 2019 23:33:51 +0000
+Message-ID: <304f1a29e3cd479abdb87df3d923a5d9@Ex2013-MBX2.supermicro.com>
+References: <20190404232930.ht6rhx7xcylhkk4m@laptop>
+ <dabe7cd4945647a8859b43782cefc6fa@EX2013-MBX3.supermicro.com>
+ <20190411043545.7mgf2c32btaaqubc@laptop>
+ <fba5aef21f84446d8b08d24529ad3444@Ex2013-MBX2.supermicro.com>
+ <8199AD2C-9174-45E7-B3A0-D01B987B2C22@gmail.com>
+ <0096eb81ddc84861be57b7571672ada4@Ex2013-MBX2.supermicro.com>
+ <20DDDF0F-F364-4998-B710-82E12FBE99E1@gmail.com>
+ <0e1e4ba4b6ea45eebe26ed0a34d40dba@Ex2013-MBX2.supermicro.com>
+ <CAKnWxmMPDNaePZVWCS+BoaDRP8jFkT7UrO4KsPco88zsWzQUiQ@mail.gmail.com>
+ <ffa923cfecd04e2d8915612425551925@Ex2013-MBX2.supermicro.com>
+ <20190423020221.wefy52sn2fpqogpx@laptop>
+In-Reply-To: <20190423020221.wefy52sn2fpqogpx@laptop>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.2.0.41]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:,, definitions=2019-04-23_09:,,
+ signatures=0
+
+SGVsbG8gWUlhbiwNCg0KVGhhbmsgeW91IGZvciB5b3VyIGVtYWlsLiAgTWljaGVsbGUgTmd1eWVu
+IGlzIGNyZWF0aW5nIGFuZCBSTUEgdG8gYnJpbmcgYmFjayB0aGUgTW90aGVyYm9hcmQgKFNOIFlN
+RjE0QVMwMDAwMzQpIGZvciBTTUMgdG8gcmVtb3ZlIHRoZSBDUFUgc29ja2V0IGJyYWNrZXQgYXQg
+bm8gY2hhcmdlLg0KDQpUaGFuayB5b3UsDQpEZWxpYSBFbm9zDQpTdXBlciBNaWNybyBDb21wdXRl
+ciwgSW5jLiANClJNQSBEZXBhcnRtZW50fMKgNzA4IFJpZGRlciBQYXJrIERyaXZlIFNhbiBKb3Nl
+LCBDQSA5NTEzMQ0KRDQwOC01MDMtODAwMCB4IDY0ODkgfCBGYXg6IDQwOC01MDMtODAyMQ0KDQot
+LS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KRnJvbTogWWxhbiBBbGxvdWNoZSA8eWxhbi5hbGxv
+dWNoZUBnbWFpbC5jb20+IA0KU2VudDogTW9uZGF5LCBBcHJpbCAyMiwgMjAxOSA3OjAyIFBNDQpU
+bzogRGVsaWEgRW5vcyAoUk1BKSA8RGVsaWFFQHN1cGVybWljcm8uY29tPg0KQ2M6IEFMTE9VQ0hF
+IFlsYW4gPHlsYW4uYWxsb3VjaGVAZ21haWwuY29tPg0KU3ViamVjdDogUmU6IEZXOiBTTUMgUmVw
+YWlyIENoYXJnZSBSTUE6IFJJMTkwMjA0MDU2IDJuZCBOb3RpY2UNCg0KRXZlbmluZyBEZWxpYSwN
+Cg0KSSBoYXZlIHJlY2VpdmVkIHRoZSBtb3RoZXJib2FyZCB1bmZvcnR1bmF0ZWx5IEkgaGF2ZSBu
+b3QgYmVlbiBhYmxlIHRvIHRyeSBpdC4NCg0KVW5saWtlIHRoZSB1bml0IEkgc2VudCBpdCBjYW1l
+IHdpdGggb25lIG9mIHlvdXIgcHJvcHJpZXRhcnkgQ1BVIGNvb2xlciBicmFja2V0IHRoYXQgaXMg
+bm90IGNvbXBhdGlibGUgd2l0aCB0aGUgSW50ZWwgc3RvY2sgb25lLg0KDQpUbyBub3QgaGF2ZSB0
+byBkbyB0aGUgYmFjayBhbmQgZm9ydGggd2l0aCB0aGUgbW90aGVyYm9hcmQgYW55IGNoYW5jZSB5
+b3UgY2FuIHNlbmQgbWUgYW55dGhpbmcgY29tcGF0aWJsZSB3aXRoIGl0Pw0KDQpUaGFua3MsDQoN
+Ci0tDQpZbGFuDQoNCk9uIEZyaSwgQXByIDE5LCAyMDE5IGF0IDA2OjExOjA1UE0gKzAwMDAsIERl
+bGlhIEVub3Mgd3JvdGU6DQo+IEhlbGxvIFlJYW4sDQo+IA0KPiBUaGFuayB5b3UgZm9yIGxldHRp
+bmcgbWUga25vdy4gIEFjY291bnRpbmcganVzdCBwcm9jZXNzIHRoZSBjcmVkaXQgY2FyZCBhbmQg
+ZXZlcnl0aGluZyB3YXMgZ29vZC4NCj4gDQo+IFRoYW5rIHlvdSBhbmQgSGF2ZSBhIG5pY2UgSGFw
+cHkgRWFzdGVyIFN1bmRheSB3aXRoIHRoZSBGYW1pbHkhDQo+IA0KPiBUaGFuayB5b3UsDQo+IERl
+bGlhIEVub3MNCj4gU3VwZXIgTWljcm8gQ29tcHV0ZXIsIEluYy4NCj4gUk1BIERlcGFydG1lbnR8
+IDcwOCBSaWRkZXIgUGFyayBEcml2ZSBTYW4gSm9zZSwgQ0EgOTUxMzENCj4g4oCiNDA4LTUwMy04
+MDAwIHggNjQ4OSB8IEZheDogNDA4LTUwMy04MDIxDQo+IA0KPiBGcm9tOiBBTExPVUNIRSBZbGFu
+IDx5bGFuLmFsbG91Y2hlQGdtYWlsLmNvbT4NCj4gU2VudDogVGh1cnNkYXksIEFwcmlsIDE4LCAy
+MDE5IDEwOjE2IEFNDQo+IFRvOiBEZWxpYSBFbm9zIChSTUEpIDxEZWxpYUVAc3VwZXJtaWNyby5j
+b20+DQo+IFN1YmplY3Q6IFJlOiBGVzogU01DIFJlcGFpciBDaGFyZ2UgUk1BOiBSSTE5MDIwNDA1
+NiAybmQgTm90aWNlDQo+IA0KPiBIZXkgRGVsaWEsDQo+IA0KPiBTb3JyeSBhYm91dCB0aGF0IGkg
+b25seSB1c2UgdGhpcyBjYXJkIGZvciBVUyByZWxhdGVkIHRoaW5ncywgZm9yZ290IHRoZSBiYWxh
+bmNlIG9uIGl0Lg0KPiBDb3VsZCB5b3UgZ2l2ZSBpdCBhbm9oZXIgdHJ5Pw0KPiANCj4gVGhhbmtz
+LA0KPiANCj4gTGUgbWVyLiAxNyBhdnIuIDIwMTkgw6AgMTQ6MzUsIERlbGlhIEVub3MgPERlbGlh
+RUBzdXBlcm1pY3JvLmNvbTxtYWlsdG86RGVsaWFFQHN1cGVybWljcm8uY29tPj4gYSDDqWNyaXQg
+Og0KPiBHb29kIG1vcm5pbmcgWUlhbiwNCj4gDQo+IFNvcnJ5LCAgdGhlIGNyZWRpdCBjYXJkIGhh
+cyBiZWVuIGRlY2xpbmVkLiAgUGxlYXNlIGNvbmZpcm0gdGhlIGNyZWRpdCBjYXJkIG9yIHByb3Zp
+ZGUgYSBuZXcgY3JlZGl0IGNhcmQgdGhlIE1vdGhlcmJvYXJkIGlzIHBlbmRpbmcgc2hpcHBpbmcu
+DQo+IA0KPiBUaGFuayB5b3UsDQo+IERlbGlhIEVub3MNCj4gU3VwZXIgTWljcm8gQ29tcHV0ZXIs
+IEluYy4NCj4gUk1BIERlcGFydG1lbnR8IDcwOCBSaWRkZXIgUGFyayBEcml2ZSBTYW4gSm9zZSwg
+Q0EgOTUxMzENCj4g4oCiNDA4LTUwMy04MDAwIHggNjQ4OSB8IEZheDogNDA4LTUwMy04MDIxDQo+
+IA0KPiBGcm9tOiBZbGFuIEFsbG91Y2hlIA0KPiA8eWxhbi5hbGxvdWNoZUBnbWFpbC5jb208bWFp
+bHRvOnlsYW4uYWxsb3VjaGVAZ21haWwuY29tPj4NCj4gU2VudDogRnJpZGF5LCBBcHJpbCAxMiwg
+MjAxOSA5OjAyIEFNDQo+IFRvOiBEZWxpYSBFbm9zIChSTUEpIA0KPiA8RGVsaWFFQHN1cGVybWlj
+cm8uY29tPG1haWx0bzpEZWxpYUVAc3VwZXJtaWNyby5jb20+Pg0KPiBTdWJqZWN0OiBSRTogU01D
+IFJlcGFpciBDaGFyZ2UgUk1BOiBSSTE5MDIwNDA1NiAybmQgTm90aWNlDQo+IA0KPiBIZXJlIGlz
+IHRoZSBmb3JtIGZpbGxlZCBvdXQNCj4gTGV0IG1lIGtub3cgaWYgeW91J3JlIG1pc3NpbmcgYW55
+dGhpbmcNCj4gDQo+IFlsYW4uDQo+IC0tDQo+IFNlbnQgZnJvbSBteSBtb2JpbGUgZGV2aWNlLiBQ
+bGVhc2UsIGV4Y3VzZSBteSBicmV2aXR5Lg0KPiBPbiBBcHJpbCAxMSwgMjAxOSA3OjE4OjU3IFBN
+IFVUQywgRGVsaWEgRW5vcyA8RGVsaWFFQHN1cGVybWljcm8uY29tPG1haWx0bzpEZWxpYUVAc3Vw
+ZXJtaWNyby5jb20+PiB3cm90ZToNCj4gSGVsbG8gWWxhbiwNCj4gDQo+IFRoZSBwYXltZW50IHRl
+cm0gYXJlIGNyZWRpdCBjYXJkIHlvdSBjYW4gcmVmZXJlbmNlIGEgcHVyY2hhc2Ugb3JkZXIgb24g
+dGhlIFJNQSBmb3JtLg0KPiANCj4gVGhhbmsgeW91LA0KPiBEZWxpYSBFbm9zDQo+IFN1cGVyIE1p
+Y3JvIENvbXB1dGVyLCBJbmMuDQo+IFJNQSBEZXBhcnRtZW50fCA3MDggUmlkZGVyIFBhcmsgRHJp
+dmUgU2FuIEpvc2UsIENBIDk1MTMxDQo+IOKAojQwOC01MDMtODAwMCB4IDY0ODkgfCBGYXg6IDQw
+OC01MDMtODAyMQ0KPiANCj4gRnJvbTogWWxhbiBBbGxvdWNoZSANCj4gPHlsYW4uYWxsb3VjaGVA
+Z21haWwuY29tPG1haWx0bzp5bGFuLmFsbG91Y2hlQGdtYWlsLmNvbT4+DQo+IFNlbnQ6IFRodXJz
+ZGF5LCBBcHJpbCAxMSwgMjAxOSAxMDo0MyBBTQ0KPiBUbzogRGVsaWEgRW5vcyAoUk1BKSANCj4g
+PERlbGlhRUBzdXBlcm1pY3JvLmNvbTxtYWlsdG86RGVsaWFFQHN1cGVybWljcm8uY29tPj4NCj4g
+U3ViamVjdDogUkU6IFNNQyBSZXBhaXIgQ2hhcmdlIFJNQTogUkkxOTAyMDQwNTYgMm5kIE5vdGlj
+ZQ0KPiANCj4gQW5kIHdoYXQgaXMgbXkgcG8gbnVtYmVyPw0KPiANCj4gWWxhbi4NCg0KLS0NClls
+YW4gQWxsb3VjaGUNCg==

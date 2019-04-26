@@ -1,4 +1,4 @@
-# vi: ft=i3config
+vi: ft=i3config
 
 set $mod Mod4
 font pango:monospace 8
@@ -7,7 +7,8 @@ floating_modifier $mod
 
 exec_always --no-startup-id polybar example 
 
-bindsym $mod+Return exec xterm
+bindsym $mod+Return exec kitty  --single-instance
+bindsym $mod+Ctrl+Return exec xterm 
 # bindsym $mod+Shift+Return exec xterm -e "xdg-open ~"
 bindsym $mod+Shift+Return exec xterm -e "ranger ~"
 
@@ -255,8 +256,8 @@ bindsym $mod+u exec xterm -class dropdown -e "tmux attach -t Tasks"
 bindsym XF86MonBrightnessDown exec sudo su -c 'echo  $(echo "$(cat /sys/class/backlight/intel_backlight/brightness) - 100" | bc)  >  /sys/class/backlight/intel_backlight/brightness' - root
 bindsym XF86MonBrightnessUp exec sudo su -c 'echo  $(echo "$(cat /sys/class/backlight/intel_backlight/brightness) + 100" | bc)  >  /sys/class/backlight/intel_backlight/brightness' - root
 
-
-
+bindsym XF86Search exec kitty vim $(locate home | rofi -dmenu -i -p "Select file to open")
+bindsym Shift+XF86Search exec xdg-open $(locate home | rofi -dmenu -i -p "Select file to open")  
 
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && notify-send "Volume: $(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))"
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && notify-send "Volume: $(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))"

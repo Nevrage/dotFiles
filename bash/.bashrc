@@ -428,7 +428,8 @@ else
 fi
 clear
 # cat index.html | grep -o '<a .*href=.*>' | sed -e 's/<a /\n<a /g' | sed -e 's/<a .*href=['"'"'"]//' -e 's/["'"'"'].*$//' -e '/^$/ d'"'"'"]"'"'"']'
-alias vz='vim "$(fzf)"'
+alias vz='vim $(locate home | fzf)'
+alias vzz='vim "$(fzf)"'
 alias watsh='watch -c -t \"!!\"'
 alias i3="vim ~/.config/i3/config"
 alias vg="vim +Goyo "

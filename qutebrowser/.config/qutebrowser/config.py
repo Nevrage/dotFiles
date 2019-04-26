@@ -452,7 +452,8 @@ c.downloads.remove_finished = 500
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
-c.editor.command = ['kitty', '--class BME','vim {}']
+# c.editor.command = ['kitty', '--class', 'BME', 'vim {}']
+c.editor.command = ['xterm', '-e' , 'vim {}']
 
 # Encoding to use for the editor.
 # Type: Encoding

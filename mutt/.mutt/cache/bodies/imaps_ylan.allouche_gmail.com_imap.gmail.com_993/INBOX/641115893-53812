@@ -1,0 +1,1302 @@
+Delivered-To: ylan.allouche@gmail.com
+Received: by 2002:a2e:8892:0:0:0:0:0 with SMTP id k18csp243751lji;
+        Tue, 23 Apr 2019 22:18:14 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqy+ZCk+LgE1JCaSAWLkBYz5QvyvyFy9JYv12J0ZmZEip3Uo2eOSuR0GbGB+BdQKFJuovH0S
+X-Received: by 2002:a65:6655:: with SMTP id z21mr28489112pgv.33.1556083094216;
+        Tue, 23 Apr 2019 22:18:14 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1556083094; cv=none;
+        d=google.com; s=arc-20160816;
+        b=zOfTLwbW01EpBvC0LZ5BkEVfFnAshf1fkgQnAoDaweUVidwXInJT3jbSmc3QQpQ/G2
+         4gSR3o94GK5wgRZ5GLLiOpspngz9yIMA1LXpVFx89vFIrRnauQjQiNB4ySZlTeWaMT0F
+         4gSNr9wJgkjn7ptsNiPnrTEwlSdWC/L6M4o0IfYKtTvpp6JZVJ98yA9X7tFbWXZOMe0C
+         dwHNlIuPyA114HBDoSo1d2zImhxAcP/X5nz2XR8tGJiBu4+sxKw0MkktKwtXKxSOYKCX
+         mh8r5efmabER1h0VC6NkitkrwJVUOCQQR2OW1xBoVEf5LzLIPW0AcdHTX1jGq2JhGZy1
+         pSzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:mime-version:subject:message-id:to:reply-to:from
+         :date:dkim-signature;
+        bh=YTG5ai4wtSDVKb+J5MEmkPX4Tgh6EJNlz4OG42H7BoQ=;
+        b=V4kR5479CTIUKfjtq/pCPCOYWmUJ2iTNGGiVb8GKr7dalyr23QGPTVDiOR+yndEcoM
+         JRxdcdWIFtx4MLwAuFfZ6q2pzrpZj/J3tucI8l0D37cD6sGYbWk3shYV8lndpJnYGKrm
+         Ici2I433TT+spkJF/Xa8F3UZWpuhBN60R8OwJtZnsEf80TPDd3i7auwV8h35k4o6YDzh
+         UE8Fc4165d9vkEnapOwQod6tYCKqL9LXssXaDNRuGkbPya1h5ZjMPKqiAhPbbDkbVZuq
+         REE179mKjyJpom34XYB/yFGuN/k3tt1wnKwslHpXY1iBag//NmR3RZtffjYm76R4aWX8
+         ALXA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mktdns.com header.s=m1 header.b=PPiV5NSt;
+       spf=pass (google.com: domain of 067-umd-991.0.19848.0.0.4092.9.13835809@email.getpostman.com designates 192.28.156.111 as permitted sender) smtp.mailfrom=067-UMD-991.0.19848.0.0.4092.9.13835809@email.getpostman.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=getpostman.com
+Return-Path: <067-UMD-991.0.19848.0.0.4092.9.13835809@email.getpostman.com>
+Received: from email.getpostman.com (email.getpostman.com. [192.28.156.111])
+        by mx.google.com with ESMTPS id c10si18159978pfg.172.2019.04.23.22.18.13
+        for <ylan.allouche@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 23 Apr 2019 22:18:14 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 067-umd-991.0.19848.0.0.4092.9.13835809@email.getpostman.com designates 192.28.156.111 as permitted sender) client-ip=192.28.156.111;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mktdns.com header.s=m1 header.b=PPiV5NSt;
+       spf=pass (google.com: domain of 067-umd-991.0.19848.0.0.4092.9.13835809@email.getpostman.com designates 192.28.156.111 as permitted sender) smtp.mailfrom=067-UMD-991.0.19848.0.0.4092.9.13835809@email.getpostman.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=getpostman.com
+Return-Path: <thepostmanteam@getpostman.com>
+X-MSFBL: Z4rl4fMQNNK5O1iAg3d6bP2cFOlQ9gF8KsrzhWISJhQ=|eyJ1IjoiMDY3LVVNRC0
+	5OTE6MzEyMDozNDE4OjY3ODU6MDo0MDkyOjk6MTk4NDg6MTM4MzU4MDkiLCJiIjo
+	iZHZwLTE5Mi0yOC0xNTYtMTExIiwiciI6InlsYW4uYWxsb3VjaGVAZ21haWwuY29
+	tIiwiZyI6ImJnLXNqZC02NTAifQ==
+Received: from [10.0.87.249] ([10.0.87.249:44751] helo=sjmas02.marketo.org)
+	by sjmta07.marketo.org (envelope-from <thepostmanteam@getpostman.com>)
+	(ecelerity 4.2.38.62370 r(:)) with ESMTP
+	id 93/85-07625-16BEFBC5; Tue, 23 Apr 2019 23:51:45 -0500
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1556081505;
+	s=m1; d=mktdns.com; i=@mktdns.com;
+	h=Date:From:To:Subject:MIME-Version:Content-Type;
+	bh=YTG5ai4wtSDVKb+J5MEmkPX4Tgh6EJNlz4OG42H7BoQ=;
+	b=PPiV5NStHieINTKsLC2oDht4RiLPlcDJ86D9COw9OvNRMv41hTYbzYhtXY0+zlJ/
+	QN/rJBs1AplrkZ4oi95hiEy59bcu/ZVUIP2OqFS0S7O05C4fdfLltwfGz9YZ9Y4W/k3
+	XJF4LzcpHnPDlbjvhuUqmu1MAY28/s4eDMqEf/is=
+Date: Tue, 23 Apr 2019 23:51:45 -0500 (CDT)
+From: The Postman Team <thepostmanteam@getpostman.com>
+Reply-To: thepostmanteam@getpostman.com
+To: ylan.allouche@gmail.com
+Message-ID: <356802383.-789641431.1556081505928.JavaMail.root@sjmas02.marketo.org>
+Subject: April 2019 Update from Postman
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_-789641433_2069183548.1556081505928"
+X-Binding: bg-sjd-650
+X-MarketoID: 067-UMD-991:3120:3418:6785:0:4092:9:19848:13835809
+X-MktArchive: false
+List-Unsubscribe: <mailto:IVYTKMTFGNVGY2DKJVUFOYLGMZCUCTLPORTT2PI.19848.4092.9@unsub-sj.mktomail.com>
+X-Mailfrom: 067-UMD-991.0.19848.0.0.4092.9.13835809@email.getpostman.com
+X-MSYS-API: {"options":{"open_tracking":false,"click_tracking":false}}
+X-MktMailDKIM: true
+
+------=_Part_-789641433_2069183548.1556081505928
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+The Postman User Conference=C2=A0will be back in=C2=A0San Francisco!=C2=A0J=
+oin us on=C2=A0 September 11th & 12th, covering the state of=C2=A0APIs &=C2=
+=A0connected software - with perspective, detailed use cases, and technical=
+ sessions, from industry=C2=A0experts, developers, and other API practition=
+ers.=20
+=20
+=20
+ =09- Pre-Conference Workshop: Wednesday, September 11th - advanced trainin=
+g on Postman. Earn a Postman certification! =09- Full-day Conference: Thurs=
+day, September 12th - full day of sessions covering all things Postman and =
+all things API.=20
+=20
+=20
+
+Reserve Your Spot Now!=20
+
+ =09-   Need=C2=A0more info (location, pricing, timing, etc.)? =C2=A0 Get t=
+he details <http://go.getpostman.com/TrGU30d05000kMU00DW3hD0>.   =09-   Rea=
+dy to register?=C2=A0 Buy early bird tickets <http://go.getpostman.com/TrGU=
+30d05000kMU00DW3hD0>!   =09-   Interested in speaking at POST/CON?=C2=A0 Sh=
+are your idea for a talk <http://go.getpostman.com/VkMs000h350D000UDW3dVG0>=
+!
+We want to hear from you!=20
+Every=C2=A0year, we ask our community to answer a few questions about APIs,=
+ how they work, and technology trends. Please participate in our 2019 surve=
+y!=20
+Bonus: If you want to contribute by filling out our survey, there might be =
+some stellar Postman swag in it for you!
+We are excited to introduce=C2=A0Better Practices,=C2=A0Postman's=C2=A0publ=
+ication=C2=A0on modern software practices!=C2=A0We value continuous growth =
+and learning,=C2=A0so this publication is dedicated to fostering up-and-com=
+ing knowledge in our community.=C2=A0 You can find thought-leadership artic=
+les, innovative recipes, tutorials, and more on=C2=A0Better Practices.
+Postman May Mashup contest is happening now! Between now and May 31st, you =
+can enter the May Mashup by sharing a collection as a Postman template!=C2=
+=A0
+=20
+
+The most popular templates will not only gain wide=C2=A0adoption from the P=
+ostman community but will also win=C2=A0fantastic=C2=A0prizes!
+We're offering a free online workshop series!=C2=A0To attend live and have =
+your questions answered by a Postman expert, register below.=20
+=20
+=20
+=20
+=20
+ Workshop Topics:=20
+=20
+ =09- Collaborating on API Design with Schema and Postman Collections=C2=A0=
+- Watch the recording here <http://go.getpostman.com/WU05QGMWD0i0Dhd0030k40=
+0>. =09- Working Across Teams with Version Control and Collections as a Sou=
+rce of Truth=C2=A0- Watch the recording here <http://go.getpostman.com/DUjW=
+00R0DMk00405DG0d0h3>. =09- Powering Mocking, Monitoring, CI/CD, and Other T=
+asks with Collaborative Collections -=C2=A0Thursday, April 25th at 10:00 AM=
+ PST
+There's a new Microsoft Postman Collection! Follow along with this tutorial=
+ by Jeremy Thake, Principal Program Manager at Microsoft, to learn how you =
+can import and use Graph Explorer with any application <http://go.getpostma=
+n.com/JM0DU3025D0GA4k0hd000W0> you've created in your Microsoft 365 tenant.=
+=20
+
+In this multipart series on Postman, Mic Whitehorn-Gillam, Senior Security =
+Consultant at Secure Ideas, shows you how to=C2=A0send your=C2=A0first requ=
+est <http://go.getpostman.com/Y0hW40BGd003k000DMU03D5>=C2=A0in Postman,=C2=
+=A0how to=C2=A0set up penetration tests <http://go.getpostman.com/Y0hW40CGd=
+003k000DMU04D5>=C2=A0by proxying Postman through Burp Extensions, and=C2=A0=
+how you can use Postman for more advanced functions <http://go.getpostman.c=
+om/j3DM050DU00Wk0dGDh50400>.=C2=A0=20
+
+Don't shy away from automating tests on APIs that use 2FA. Valentin Despa,=
+=C2=A0Software Developer Educator, shows you an example of how to set up an=
+ automated test using Postman and the GitHub API <http://go.getpostman.com/=
+kU0ED0G004d00Mh3k506W0D> in his latest tutorial.=C2=A0=20
+
+Save time by using Newman <http://go.getpostman.com/K003WUM00D470Fhkd05G0D0=
+> to import data files that store parameters for different environments. Le=
+arn how in this tutorial by Jen-Hsuan Hsieh, Software Engineer at Garmin.=
+=C2=A0=20
+
+You can now connect the Mercedes-Benz API with Postman to=C2=A0get status u=
+pdates on your vehicle's door locks, tire pressure, and more <http://go.get=
+postman.com/hDd58WM00U0003h4G000DGk>=C2=A0thanks to this article by=C2=A0Al=
+exey Bakulin,  Software =C2=A0Developer.=C2=A0=20
+
+This video tutorial by=C2=A0Raghav Pal,=C2=A0Test Automation Teacher at=C2=
+=A0Automation Step by Step, shows you how=C2=A0you can chain API requests i=
+n Postman <http://go.getpostman.com/dh0Dd59G430Dk00MWH000U0>.=C2=A0=20
+
+This article from Velotio=C2=A0Technologies takes a dive into testing and a=
+utomating with Postman and Newman. Learn how you can=C2=A0use Postman as a =
+full-featured testing sandbox <http://go.getpostman.com/b0000hMD4Ua0Dd5I000=
+3kWG>=C2=A0in this tutorial!
+Do you want=C2=A0to help shape the development of Postman? We're conducting=
+ user testing to get your feedback. If you would like to participate (and g=
+et some fashionable Postman swag while you're at it), please sign up to be =
+a part of our user testing program!
+Postman was chosen as one of the top 26 tools for VMware administrators <ht=
+tp://go.getpostman.com/udG000kMWD0h0L004d3UD50> by Tecmint! See which other=
+ companies made the cut.=C2=A0=20
+
+Abhinav Asthana, CEO=C2=A0  and =C2=A0co-founder of Postman, dives into QA =
+best practices and=C2=A0how you can upgrade and simplify your QA workflow <=
+http://go.getpostman.com/Y0hW40BGd003k000DMU03D5>=C2=A0in his latest articl=
+e in ProgrammableWeb.
+=20
+
+Postman was named one of the top market players <http://go.getpostman.com/d=
+h0Dd5eG430Dk00MWM000U0>=C2=A0in=C2=A0Market Research News' latest API Manag=
+ement Software Report.=C2=A0=20
+
+In this article from The Software Report,=C2=A0Kasey Byrne, our VP of Marke=
+ting, discusses how she leverages the most practical and effective strategi=
+es to lead her team <http://go.getpostman.com/B500NU0DG000W04M0kfDd3h>=C2=
+=A0at Postman.=C2=A0
+=C2=A9 2019 Postman Inc., All Rights Reserved.
+595 Market Street, Suite 1130=C2=A0 San Francisco, CA 94105 <http://go.getp=
+ostman.com/DUkW00S0DMk00405DG0d0h3>
+Click to unsubscribe <[[https://pages.getpostman.com/UnsubscribePage.html?m=
+kt_unsubscribe=3D1&mkt_tok=3DeyJpIjoiT1RCaE1EazJOamhtWm1OaSIsInQiOiJjM3o0SF=
+MyQk9FaDBqM0ZFUkZ3QThUemNqLzJUUERqTmczUVNtWGJTekV5SC9ZeEo4RnREcFZvOE1GTVZaV=
+EpGcy9KOFNZVDNac3BxdU9KQ2VCeWNBdUkxQnNXQzJlVUFMTzFQR0sybzMvZjMzU0lwUHlQUTRr=
+VG9SL2ZSZ1ptWCJ9]]> from these emails.
+
+------=_Part_-789641433_2069183548.1556081505928
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html>
+<head>=20
+<title>New Newsletter Template</title>=20
+<!-- <link href=3D"https://fonts.googleapis.com/css?family=3DOpen+Sans:400,=
+600,700" rel=3D"stylesheet"> -->=20
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1"=
+>=20
+<!-- Marketo Variables -->                   =20
+<style type=3D"text/css">
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://f=
+onts.gstatic.com/s/opensans/v15/u-WUoqrET9fUeobQW7jkRYX0hVgzZQUfRDuZrPvH3D8=
+.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60=
+-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://f=
+onts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920=
+.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, =
+U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https:/=
+/fonts.gstatic.com/s/opensans/v15/MTP_ySUJH_bn48VBG8sNSojoYw3YTyktCCer_ilOl=
+hE.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60=
+-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url(https:/=
+/fonts.gstatic.com/s/opensans/v15/MTP_ySUJH_bn48VBG8sNShampu5_7CjHW5spxoeN3=
+Vs.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, =
+U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.g=
+static.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzIjoYw3YTyktCCer_ilOlhE.woff2=
+) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60=
+-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.g=
+static.com/s/opensans/v15/k3k702ZOKiLJc3WVjuplzBampu5_7CjHW5spxoeN3Vs.woff2=
+) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, =
+U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+=09=09a {
+=09=09=09color: #F26B3A !important;
+=09=09}
+    a.button {
+      color: #FFFFFF !important;
+    }
+    #footerText {
+      color: #FFFFFF !important;
+    }
+    #footerText a:link {
+      color: #FFFFFF !important;       =20
+    }
+=09</style>=20
+</head>=20
+<!-- [if !((gte mso 9)|(IE))]><!-->=20
+<body bgcolor=3D"#F4815B" style=3D"font-family:'Open Sans', -apple-system, =
+Helvetica, Arial, sans-serif !important; color: #282828;"><style type=3D"te=
+xt/css">div#emailPreHeader{ display: none !important; }</style><div id=3D"e=
+mailPreHeader" style=3D"mso-hide:all; visibility:hidden; opacity:0; color:t=
+ransparent; mso-line-height-rule:exactly; line-height:0; font-size:0px; ove=
+rflow:hidden; border-width:0; display:none !important;">POST/CON is back! G=
+et your early bird tickets!</div>=20
+<!-- Pre-header - set this hidden -->=20
+<div style=3D"display: none !important; width:0; height:0; overflow:hidden;=
+ float:none; visibility:hidden; line-height:0; font-size:0; max-height:0; m=
+so-hide: all">=20
+</div>=20
+<!-- <![endif] -->=20
+<!-- Email Content -->=20
+<table id=3D"body" class=3D"body" summary=3D"body" width=3D"100%" height=3D=
+"100%" align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" st=
+yle=3D"background-color: #F4815B;">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center" valign=3D"top">=20
+<!-- START LIQUID WRAPPER -->=20
+<!--[if mso]>
+        =09=09=09=09<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ style=3D"padding:0px;margin:0px;width:100%;">
+           =09=09=09=09=09<tr>
+               =09=09=09=09=09<td style=3D"padding:0px;margin:0px;">&nbsp;<=
+/td>
+                =09=09=09=09<td style=3D"padding:0px;margin:0px;" width=3D"=
+640">
+        =09=09=09<![endif]-->=20
+<table class=3D"outer-table mktoContainer" id=3D"template-wrapper" summary=
+=3D"outer-table" align=3D"center" valign=3D"top" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"width: 100%; max-width: 550px; margin: 0 =
+auto;" width=3D"100%">
+<tr class=3D"mktoModule" id=3D"mkto-header-module">=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+92.7%; max-width: 510px; margin: 0 auto;" width=3D"100%">=20
+<tbody>=20
+<tr height=3D"20">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+<tr height=3D"50">=20
+<td align=3D"left" valign=3D"middle"> <a href=3D
+"http://go.getpostman.com/j3qM050DU00Wk0dGDhT0300" target=3D"_blank"
+><img src=3D"http://pages.getpostman.com/rs/067-UMD-991/images/pm-logo.png"=
+ width=3D"51" height=3D"50" style=3D"border:0; width:51px; height: 50px;"><=
+/a> </td>=20
+<td align=3D"right" valign=3D"middle"> <span style=3D"text-align: right!imp=
+ortant; font-size: 12px; color: #FFFFFF; font-weight: 600;">Postman Monthly=
+ Newsletter: April 2019</span> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"mkto-article-image-module4a6ddde4-e9c3-44b9-=
+a8f7-ab5aad4fe9b8">=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+92.7%; max-width: 510px; margin: 0 auto;" width=3D"100%">=20
+<tbody>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td align=3D"center" valign=3D"top">=20
+<div class=3D"mktoImg" id=3D"mkto-article-image4a6ddde4-e9c3-44b9-a8f7-ab5a=
+ad4fe9b8" mktolockimgsize=3D"true">=20
+<a><img src=3D"https://pages.getpostman.com/rs/067-UMD-991/images/postcon-h=
+ero-2019-2.png" width=3D"510" style=3D"width:100%; max-width: 510px; displa=
+y: block; background-color: #FFFFFF; box-shadow: 0px 7px 15px rgba(0, 0, 0,=
+ .3)!important;" alt=3D"postcon-hero-2019-2.png"></a>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; background=
+-image: url(http://pages.getpostman.com/rs/067-UMD-991/images/image-shadow.=
+png); background-repeat: repeat-x; background-size: 2px 25px; background-po=
+sition: 0px 0px;margin: 0 auto; text-align:center;" width=3D"100%" bgcolor=
+=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td> <h1 style=3D"font-family:'Open Sans', -apple-system, Helvetica, Arial,=
+ sans-serif !important; font-weight: 600; margin: 25px 20px 25px 20px; padd=
+ing: 0px;text-align: left; color: #282828; font-size: 20px;">Join Us at POS=
+T/CON 2019!</h1>=20
+<div class=3D"mktoText" id=3D"articleContent14a6ddde4-e9c3-44b9-a8f7-ab5aad=
+4fe9b8" style=3D"font-size: 12px; line-height: 22px; font-weight: 400; colo=
+r: #282828; margin: 0 20px 25px 20px; padding: 0px; text-align: left;">=20
+<div>
+ The=20
+<strong>Postman User Conference</strong>&nbsp;will be back in&nbsp;San Fran=
+cisco!&nbsp;Join us on&nbsp;=20
+<strong>September 11th &amp; 12th</strong>, covering the state of&nbsp;APIs=
+ &amp;&nbsp;connected software - with perspective, detailed use cases, and =
+technical sessions, from industry&nbsp;experts, developers, and other API p=
+ractitioners.=20
+</div>=20
+<div style=3D"text-align: center;">=20
+<ul>=20
+<li style=3D"text-align: left;"><strong>Pre-Conference Workshop</strong>: W=
+ednesday, September 11th - advanced training on Postman. Earn a Postman cer=
+tification!</li>=20
+<li style=3D"text-align: left;"><strong>Full-day Conference</strong>: Thurs=
+day, September 12th - full day of sessions covering all things Postman and =
+all things API.</li>=20
+</ul>=20
+</div>=20
+<p><strong>Reserve Your Spot Now!</strong></p>=20
+<ul>=20
+<li>=20
+<div>=20
+<span style=3D"color: #000000;">Need&nbsp;more info (location, pricing, tim=
+ing, etc.)?</span>=20
+<span>&nbsp;</span>=20
+<a href=3D
+"http://go.getpostman.com/TrGU30d05000kMU00DW3hD0" target=3D"_blank"
+>Get the details</a>.=20
+</div> </li>=20
+<li>=20
+<div>
+ Ready to register?&nbsp;=20
+<a href=3D
+"http://go.getpostman.com/TrGU30d05000kMU00DW3hD0" target=3D"_blank"
+>Buy early bird tickets</a>!=20
+</div> </li>=20
+<li>=20
+<div>
+ Interested in speaking at POST/CON?&nbsp;=20
+<a href=3D
+"http://go.getpostman.com/VkMs000h350D000UDW3dVG0" target=3D"_blank"
+>Share your idea for a talk</a>!=20
+</div> </li>=20
+</ul>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<div style=3D"display: block !important;">=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; margin: 0 =
+auto; text-align:center;" width=3D"100%" bgcolor=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center">=20
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center" style=3D"border-radius: 35px;" bgcolor=3D"#ff6c37"> <a=
+ href=3D
+"http://go.getpostman.com/TrGU30d05000kMU00DW3hD0" target=3D"_blank" class=
+=3D"button" style=3D"font-size: 12px; line-height: 22px !important; color: =
+#ffffff !important; text-decoration: none; text-decoration: none;border-rad=
+ius: 35px; padding: 3px 30px; border: 1px solid #ff6c37; display: inline-bl=
+ock;font-family:'Open Sans', -apple-system, Helvetica, Arial, sans-serif !i=
+mportant;"
+>Buy Tickets</a> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td> &nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"mkto-article-textonly-module78b0f762-9db3-47=
+c3-acd3-3412d855fee1">=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+92.7%; max-width: 510px; margin: 0 auto;" width=3D"100%">=20
+<tbody>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; margin: 0 =
+auto; text-align:center;" width=3D"100%" bgcolor=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td> <h1 style=3D"font-family:'Open Sans', -apple-system, Helvetica, Arial,=
+ sans-serif !important; font-weight: 600; margin:25px 20px 8px 20px;padding=
+:0px;text-align: left; color: #282828; font-size: 20px;">The 2019 Postman C=
+ommunity Survey</h1>=20
+<div class=3D"mktoText" id=3D"articleContent278b0f762-9db3-47c3-acd3-3412d8=
+55fee1" style=3D"font-size: 12px; line-height: 22px; font-weight: 400; colo=
+r: #282828; margin: 0 20px 25px 20px; padding: 0px; text-align: left;">=20
+<p style=3D"color: #282828; font-family: 'Open Sans', -apple-system, Helvet=
+ica, Arial, sans-serif; font-size: 12px; font-style: normal; font-variant-l=
+igatures: normal; font-variant-caps: normal; font-weight: 400; letter-spaci=
+ng: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform:=
+ none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stro=
+ke-width: 0px; text-decoration-style: initial; text-decoration-color: initi=
+al;"><strong>We want to hear from you!</strong></p>=20
+<p style=3D"color: #282828; font-family: 'Open Sans', -apple-system, Helvet=
+ica, Arial, sans-serif; font-size: 12px; font-style: normal; font-variant-l=
+igatures: normal; font-variant-caps: normal; font-weight: 400; letter-spaci=
+ng: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform:=
+ none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stro=
+ke-width: 0px; text-decoration-style: initial; text-decoration-color: initi=
+al;">Every&nbsp;year, we ask our community to answer a few questions about =
+APIs, how they work, and technology trends. Please participate in our 2019 =
+survey!</p>=20
+<p style=3D"color: #282828; font-family: 'Open Sans', -apple-system, Helvet=
+ica, Arial, sans-serif; font-size: 12px; font-style: normal; font-variant-l=
+igatures: normal; font-variant-caps: normal; font-weight: 400; letter-spaci=
+ng: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform:=
+ none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stro=
+ke-width: 0px; text-decoration-style: initial; text-decoration-color: initi=
+al;">Bonus: If you want to contribute by filling out our survey, there migh=
+t be some stellar Postman swag in it for you!</p>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<div style=3D"display: block;">=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; margin: 0 =
+auto; text-align:center;" width=3D"100%" bgcolor=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center">=20
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center" style=3D"border-radius: 35px;" bgcolor=3D"#ff6c37"> <a=
+ href=3D
+"http://go.getpostman.com/WU05tGMWD0W0Dhd0030k300" target=3D"_blank" class=
+=3D"button" style=3D"font-size: 12px; line-height: 22px !important; color: =
+#ffffff !important; text-decoration: none; text-decoration: none;border-rad=
+ius: 35px; padding: 3px 30px; border: 1px solid #ff6c37; display: inline-bl=
+ock;font-family:'Open Sans', -apple-system, Helvetica, Arial, sans-serif !i=
+mportant;"
+>Take the Survey</a> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td> &nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"mkto-article-image-module4dfc5d3f-1ff0-41cd-=
+a30e-985673ac2d95">=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+92.7%; max-width: 510px; margin: 0 auto;" width=3D"100%">=20
+<tbody>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td align=3D"center" valign=3D"top">=20
+<div class=3D"mktoImg" id=3D"mkto-article-image4dfc5d3f-1ff0-41cd-a30e-9856=
+73ac2d95" mktolockimgsize=3D"true">=20
+<a><img src=3D"https://pages.getpostman.com/rs/067-UMD-991/images/BP-newsle=
+tter-image.png" width=3D"510" style=3D"width:100%; max-width: 510px; displa=
+y: block; background-color: #FFFFFF; box-shadow: 0px 7px 15px rgba(0, 0, 0,=
+ .3)!important;"></a>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; background=
+-image: url(http://pages.getpostman.com/rs/067-UMD-991/images/image-shadow.=
+png); background-repeat: repeat-x; background-size: 2px 25px; background-po=
+sition: 0px 0px;margin: 0 auto; text-align:center;" width=3D"100%" bgcolor=
+=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td> <h1 style=3D"font-family:'Open Sans', -apple-system, Helvetica, Arial,=
+ sans-serif !important; font-weight: 600; margin: 25px 20px 25px 20px; padd=
+ing: 0px;text-align: left; color: #282828; font-size: 20px;">Better Practic=
+es: The New Postman Engineering Blog</h1>=20
+<div class=3D"mktoText" id=3D"articleContent14dfc5d3f-1ff0-41cd-a30e-985673=
+ac2d95" style=3D"font-size: 12px; line-height: 22px; font-weight: 400; colo=
+r: #282828; margin: 0 20px 25px 20px; padding: 0px; text-align: left;">=20
+<p><span style=3D"color: #282828; font-family: 'Open Sans', -apple-system, =
+Helvetica, Arial, sans-serif; font-size: 12px; font-style: normal; font-var=
+iant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter=
+-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-tran=
+sform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-tex=
+t-stroke-width: 0px;=20
+background-color: #ffffff; text-decoration-style: initial; text-decoration-=
+color: initial; display: inline !important; float: none;">We are excited to=
+ introduce&nbsp;</span><em style=3D"color: #282828; font-family: 'Open Sans=
+', -apple-system, Helvetica, Arial, sans-serif; font-size: 12px; font-varia=
+nt-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-s=
+pacing: normal; orphans:=20
+2; text-align: left; text-indent: 0px; text-transform: none; white-space: n=
+ormal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; backgr=
+ound-color: #ffffff; text-decoration-style: initial; text-decoration-color:=
+ initial;">Better Practices</em><span style=3D"color: #282828; font-family:=
+ 'Open Sans', -apple-system, Helvetica, Arial, sans-serif; font-size: 12px;=
+ font-style: normal;=20
+font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400=
+; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; t=
+ext-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -we=
+bkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-sty=
+le: initial; text-decoration-color: initial; display: inline !important; fl=
+oat:=20
+none;">,&nbsp;Postman's&nbsp;publication&nbsp;on modern software practices!=
+&nbsp;We value continuous growth and learning,&nbsp;so this publication is =
+dedicated to fostering up-and-coming knowledge in our community.&nbsp; You =
+can find thought-leadership articles, innovative recipes, tutorials, and mo=
+re on&nbsp;</span><em style=3D"color: #282828; font-family: 'Open Sans', -a=
+pple-system, Helvetica,=20
+Arial, sans-serif; font-size: 12px; font-variant-ligatures: normal; font-va=
+riant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; t=
+ext-align: left; text-indent: 0px; text-transform: none; white-space: norma=
+l; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background=
+-color: #ffffff; text-decoration-style: initial; text-decoration-color: ini=
+tial;">Better Practices</em><span style=3D"color: #282828; font-family: 'Op=
+en Sans', -apple-system, Helvetica, Arial, sans-serif; font-size: 12px; fon=
+t-style: normal; font-variant-ligatures: normal; font-variant-caps: normal;=
+ font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; te=
+xt-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-=
+spacing: 0px;=20
+-webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-=
+style: initial; text-decoration-color: initial; display: inline !important;=
+ float: none;">.</span><br></p>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<div style=3D"display: block !important;">=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; margin: 0 =
+auto; text-align:center;" width=3D"100%" bgcolor=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center">=20
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center" style=3D"border-radius: 35px;" bgcolor=3D"#ff6c37"> <a=
+ href=3D
+"http://go.getpostman.com/TuGU30d05000kMX00DW3hD0" target=3D"_blank" class=
+=3D"button" style=3D"font-size: 12px; line-height: 22px !important; color: =
+#ffffff !important; text-decoration: none; text-decoration: none;border-rad=
+ius: 35px; padding: 3px 30px; border: 1px solid #ff6c37; display: inline-bl=
+ock;font-family:'Open Sans', -apple-system, Helvetica, Arial, sans-serif !i=
+mportant;"
+>Check Out the Blog</a> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td> &nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"mkto-article-textonly-moduleeb5285ad-948c-41=
+37-a2aa-1ca348beea91">=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+92.7%; max-width: 510px; margin: 0 auto;" width=3D"100%">=20
+<tbody>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; margin: 0 =
+auto; text-align:center;" width=3D"100%" bgcolor=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td> <h1 style=3D"font-family:'Open Sans', -apple-system, Helvetica, Arial,=
+ sans-serif !important; font-weight: 600; margin:25px 20px 8px 20px;padding=
+:0px;text-align: left; color: #282828; font-size: 20px;">Enter the Postman =
+May Mashup Contest!</h1>=20
+<div class=3D"mktoText" id=3D"articleContent2eb5285ad-948c-4137-a2aa-1ca348=
+beea91" style=3D"font-size: 12px; line-height: 22px; font-weight: 400; colo=
+r: #282828; margin: 0 20px 25px 20px; padding: 0px; text-align: left;">=20
+<p>Postman May Mashup contest is happening now! Between now and May 31st, y=
+ou can enter the May Mashup by sharing a collection as a Postman template!&=
+nbsp;<br></p>=20
+<p>The most popular templates will not only gain wide&nbsp;adoption from th=
+e Postman community but will also win&nbsp;fantastic&nbsp;prizes!</p>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<div style=3D"display: block;">=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; margin: 0 =
+auto; text-align:center;" width=3D"100%" bgcolor=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center">=20
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center" style=3D"border-radius: 35px;" bgcolor=3D"#ff6c37"> <a=
+ href=3D
+"http://go.getpostman.com/K003WUM00D3Y0vhkd05G0D0" target=3D"_blank" class=
+=3D"button" style=3D"font-size: 12px; line-height: 22px !important; color: =
+#ffffff !important; text-decoration: none; text-decoration: none;border-rad=
+ius: 35px; padding: 3px 30px; border: 1px solid #ff6c37; display: inline-bl=
+ock;font-family:'Open Sans', -apple-system, Helvetica, Arial, sans-serif !i=
+mportant;"
+>Learn More</a> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td> &nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"mkto-article-image-module967d52b2-dfbf-4d42-=
+bc81-217a85d62a45">=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+92.7%; max-width: 510px; margin: 0 auto;" width=3D"100%">=20
+<tbody>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td align=3D"center" valign=3D"top">=20
+<div class=3D"mktoImg" id=3D"mkto-article-image967d52b2-dfbf-4d42-bc81-217a=
+85d62a45" mktolockimgsize=3D"true">=20
+<a><img src=3D"https://pages.getpostman.com/rs/067-UMD-991/images/teaching_=
+group_2x_1024.png" width=3D"510" style=3D"width:100%; max-width: 510px; dis=
+play: block; background-color: #FFFFFF; box-shadow: 0px 7px 15px rgba(0, 0,=
+ 0, .3)!important;"></a>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; background=
+-image: url(http://pages.getpostman.com/rs/067-UMD-991/images/image-shadow.=
+png); background-repeat: repeat-x; background-size: 2px 25px; background-po=
+sition: 0px 0px;margin: 0 auto; text-align:center;" width=3D"100%" bgcolor=
+=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td> <h1 style=3D"font-family:'Open Sans', -apple-system, Helvetica, Arial,=
+ sans-serif !important; font-weight: 600; margin: 25px 20px 25px 20px; padd=
+ing: 0px;text-align: left; color: #282828; font-size: 20px;">The Postman On=
+line Workshop Series</h1>=20
+<div class=3D"mktoText" id=3D"articleContent1967d52b2-dfbf-4d42-bc81-217a85=
+d62a45" style=3D"font-size: 12px; line-height: 22px; font-weight: 400; colo=
+r: #282828; margin: 0 20px 25px 20px; padding: 0px; text-align: left;">=20
+<div>
+ We're offering a free online workshop series!&nbsp;To attend live and have=
+ your questions answered by a Postman expert, register below.=20
+</div>=20
+<div>=20
+<br>=20
+</div>=20
+<div>=20
+<strong>Workshop Topics</strong>:=20
+<br>=20
+<ul>=20
+<li>Collaborating on API Design with Schema and Postman Collections&nbsp;- =
+<strong><a href=3D
+"http://go.getpostman.com/Y0hW30wGd003k000DMU0ZD5" target=3D"_blank" id=3D"=
+"
+>Watch the recording here</a>.</strong></li>=20
+<li>Working Across Teams with Version Control and Collections as a Source o=
+f Truth&nbsp;- <strong><a href=3D
+"http://go.getpostman.com/y54Uk3dG0h0DDM00Wy00000" target=3D"_blank" id=3D"=
+"
+>Watch the recording here</a></strong>.</li>=20
+<li>Powering Mocking, Monitoring, CI/CD, and Other Tasks with Collaborative=
+ Collections -&nbsp;<strong>Thursday, April 25th at 10:00 AM PST</strong></=
+li>=20
+</ul>=20
+</div>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<div style=3D"display: block !important;">=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; margin: 0 =
+auto; text-align:center;" width=3D"100%" bgcolor=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center">=20
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center" style=3D"border-radius: 35px;" bgcolor=3D"#ff6c37"> <a=
+ href=3D
+"http://go.getpostman.com/L3W0DM0050140Uzkd0D0h0G" target=3D"_blank" class=
+=3D"button" style=3D"font-size: 12px; line-height: 22px !important; color: =
+#ffffff !important; text-decoration: none; text-decoration: none;border-rad=
+ius: 35px; padding: 3px 30px; border: 1px solid #ff6c37; display: inline-bl=
+ock;font-family:'Open Sans', -apple-system, Helvetica, Arial, sans-serif !i=
+mportant;"
+>Register for the Workshop Series</a> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td> &nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"mkto-article-image-module1dfffcbb-052f-4d24-=
+92ff-8f0bd5a8091a">=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+92.7%; max-width: 510px; margin: 0 auto;" width=3D"100%">=20
+<tbody>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td align=3D"center" valign=3D"top">=20
+<div class=3D"mktoImg" id=3D"mkto-article-image1dfffcbb-052f-4d24-92ff-8f0b=
+d5a8091a" mktolockimgsize=3D"true">=20
+<a><img src=3D"https://pages.getpostman.com/rs/067-UMD-991/images/community=
+.jpg" width=3D"510" style=3D"width:100%; max-width: 510px; display: block; =
+background-color: #FFFFFF; box-shadow: 0px 7px 15px rgba(0, 0, 0, .3)!impor=
+tant;"></a>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; background=
+-image: url(http://pages.getpostman.com/rs/067-UMD-991/images/image-shadow.=
+png); background-repeat: repeat-x; background-size: 2px 25px; background-po=
+sition: 0px 0px;margin: 0 auto; text-align:center;" width=3D"100%" bgcolor=
+=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td> <h1 style=3D"font-family:'Open Sans', -apple-system, Helvetica, Arial,=
+ sans-serif !important; font-weight: 600; margin: 25px 20px 25px 20px; padd=
+ing: 0px;text-align: left; color: #282828; font-size: 20px;">Community How-=
+To=E2=80=99s, Blogs, and Tutorials</h1>=20
+<div class=3D"mktoText" id=3D"articleContent11dfffcbb-052f-4d24-92ff-8f0bd5=
+a8091a" style=3D"font-size: 12px; line-height: 22px; font-weight: 400; colo=
+r: #282828; margin: 0 20px 25px 20px; padding: 0px; text-align: left;">=20
+<p>There's a new Microsoft Postman Collection! Follow along with this tutor=
+ial by Jeremy Thake, Principal Program Manager at Microsoft, to learn how y=
+ou can <a href=3D
+"http://go.getpostman.com/JM0DU3025D0GA4k0hd000W0" target=3D"_blank" id=3D"=
+"
+>import and use Graph Explorer with any application</a> you've created in y=
+our Microsoft 365 tenant.</p>=20
+<p>In this multipart series on Postman, Mic Whitehorn-Gillam, Senior Securi=
+ty Consultant at Secure Ideas, shows you how to&nbsp;<a href=3D
+"http://go.getpostman.com/Y0hW40BGd003k000DMU03D5" target=3D"_blank"
+>send your&nbsp;first request</a>&nbsp;in Postman,&nbsp;how to&nbsp;<a href=
+=3D
+"http://go.getpostman.com/Y0hW40CGd003k000DMU04D5" target=3D"_blank"
+>set up penetration tests</a>&nbsp;by proxying Postman through Burp Extensi=
+ons, and&nbsp;how you can use <a href=3D
+"http://go.getpostman.com/j3DM050DU00Wk0dGDh50400" target=3D"_blank" id=3D"=
+"
+>Postman for more advanced functions</a>.&nbsp;</p>=20
+<p>Don't shy away from automating tests on APIs that use 2FA. Valentin Desp=
+a,&nbsp;<span style=3D"color: #282828; font-family: 'Open Sans', -apple-sys=
+tem, Helvetica, Arial, sans-serif; font-size: 12px; font-style: normal; fon=
+t-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; l=
+etter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text=
+-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webki=
+t-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style:=
+ initial; text-decoration-color: initial; display: inline !important; float=
+: none;">Software Developer Educator,</span> shows you an example of how to=
+ <a href=3D
+"http://go.getpostman.com/kU0ED0G004d00Mh3k506W0D" target=3D"_blank" id=3D"=
+"
+>set up an automated test using Postman and the GitHub API</a> in his lates=
+t tutorial.&nbsp;</p>=20
+<p><a href=3D
+"http://go.getpostman.com/K003WUM00D470Fhkd05G0D0" target=3D"_blank" id=3D"=
+"
+>Save time by using Newman</a> to import data files that store parameters f=
+or different environments. Learn how in this tutorial by Jen-Hsuan Hsieh, S=
+oftware Engineer at Garmin.&nbsp;</p>=20
+<p>You can now connect the Mercedes-Benz API with Postman to&nbsp;<a href=
+=3D
+"http://go.getpostman.com/hDd58WM00U0003h4G000DGk" target=3D"_blank" id=3D"=
+"
+>get status updates on your vehicle's door locks, tire pressure, and more</=
+a>&nbsp;thanks to this article by&nbsp;Alexey Bakulin,=20
+<g class=3D"gr_ gr_29 gr-alert gr_gramm gr_inline_cards gr_run_anim Grammar=
+ only-ins doubleReplace replaceWithoutSep" id=3D"29" data-gr-id=3D"29">
+ Software=20
+</g>&nbsp;Developer.&nbsp;</p>=20
+<p>This video tutorial by&nbsp;Raghav Pal,&nbsp;Test Automation Teacher at&=
+nbsp;Automation Step by Step, shows you how&nbsp;<a href=3D
+"http://go.getpostman.com/dh0Dd59G430Dk00MWH000U0" target=3D"_blank" id=3D"=
+"
+>you can chain API requests in Postman</a>.&nbsp;</p>=20
+<p>This article from Velotio&nbsp;Technologies takes a dive into testing an=
+d automating with Postman and Newman. Learn how you can&nbsp;<a href=3D
+"http://go.getpostman.com/b0000hMD4Ua0Dd5I0003kWG" target=3D"_blank" id=3D"=
+"
+>use Postman as a full-featured testing sandbox</a>&nbsp;in this tutorial!<=
+/p>=20
+<p><br></p>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<div style=3D"display: block !important;">=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; margin: 0 =
+auto; text-align:center;" width=3D"100%" bgcolor=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center">=20
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center" style=3D"border-radius: 35px;" bgcolor=3D"#ff6c37"> <a=
+ href=3D
+"http://go.getpostman.com/JM0DU30b5D0GJ4k0hd000W0" target=3D"_blank" class=
+=3D"button" style=3D"font-size: 12px; line-height: 22px !important; color: =
+#ffffff !important; text-decoration: none; text-decoration: none;border-rad=
+ius: 35px; padding: 3px 30px; border: 1px solid #ff6c37; display: inline-bl=
+ock;font-family:'Open Sans', -apple-system, Helvetica, Arial, sans-serif !i=
+mportant;"
+>View All Community Content</a> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td> &nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"mkto-article-textonly-module753c1939-474c-4e=
+29-90a3-f1c02ae2810d">=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+92.7%; max-width: 510px; margin: 0 auto;" width=3D"100%">=20
+<tbody>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; margin: 0 =
+auto; text-align:center;" width=3D"100%" bgcolor=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td> <h1 style=3D"font-family:'Open Sans', -apple-system, Helvetica, Arial,=
+ sans-serif !important; font-weight: 600; margin:25px 20px 8px 20px;padding=
+:0px;text-align: left; color: #282828; font-size: 20px;">Join Postman's Use=
+r Testing Program!</h1>=20
+<div class=3D"mktoText" id=3D"articleContent2753c1939-474c-4e29-90a3-f1c02a=
+e2810d" style=3D"font-size: 12px; line-height: 22px; font-weight: 400; colo=
+r: #282828; margin: 0 20px 25px 20px; padding: 0px; text-align: left;">=20
+<p>Do you want&nbsp;to help shape the development of Postman? We're conduct=
+ing user testing to get your feedback. If you would like to participate (an=
+d get some fashionable Postman swag while you're at it), please sign up to =
+be a part of our user testing program!</p>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<div style=3D"display: block;">=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; margin: 0 =
+auto; text-align:center;" width=3D"100%" bgcolor=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center">=20
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center" style=3D"border-radius: 35px;" bgcolor=3D"#ff6c37"> <a=
+ href=3D
+"http://go.getpostman.com/ZMGWd05Kh000030kc00DDU4" target=3D"_blank" class=
+=3D"button" style=3D"font-size: 12px; line-height: 22px !important; color: =
+#ffffff !important; text-decoration: none; text-decoration: none;border-rad=
+ius: 35px; padding: 3px 30px; border: 1px solid #ff6c37; display: inline-bl=
+ock;font-family:'Open Sans', -apple-system, Helvetica, Arial, sans-serif !i=
+mportant;"
+>Sign Up</a> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td> &nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+<tr class=3D"mktoModule" id=3D"mkto-article-image-module32eccbfd-8702-4bf8-=
+847d-78cc7d6262b6">=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+92.7%; max-width: 510px; margin: 0 auto;" width=3D"100%">=20
+<tbody>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+<tr>=20
+<td align=3D"center" valign=3D"top">=20
+<div class=3D"mktoImg" id=3D"mkto-article-image32eccbfd-8702-4bf8-847d-78cc=
+7d6262b6" mktolockimgsize=3D"true">=20
+<a><img src=3D"https://pages.getpostman.com/rs/067-UMD-991/images/Newslette=
+r- News%402x-100.jpg" width=3D"510" style=3D"width:100%; max-width: 510px; =
+display: block; background-color: #FFFFFF; box-shadow: 0px 7px 15px rgba(0,=
+ 0, 0, .3)!important;"></a>=20
+</div> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; background=
+-image: url(http://pages.getpostman.com/rs/067-UMD-991/images/image-shadow.=
+png); background-repeat: repeat-x; background-size: 2px 25px; background-po=
+sition: 0px 0px;margin: 0 auto; text-align:center;" width=3D"100%" bgcolor=
+=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td> <h1 style=3D"font-family:'Open Sans', -apple-system, Helvetica, Arial,=
+ sans-serif !important; font-weight: 600; margin: 25px 20px 25px 20px; padd=
+ing: 0px;text-align: left; color: #282828; font-size: 20px;">Press</h1>=20
+<div class=3D"mktoText" id=3D"articleContent132eccbfd-8702-4bf8-847d-78cc7d=
+6262b6" style=3D"font-size: 12px; line-height: 22px; font-weight: 400; colo=
+r: #282828; margin: 0 20px 25px 20px; padding: 0px; text-align: left;">=20
+<p>Postman was chosen as one of the <a href=3D
+"http://go.getpostman.com/udG000kMWD0h0L004d3UD50" target=3D"_blank" id=3D"=
+"
+>top 26 tools for VMware administrators</a> by <em>Tecmint</em>! See which =
+other companies made the cut.&nbsp;</p>=20
+<p>Abhinav Asthana, CEO&nbsp;=20
+<g id=3D"14" data-gr-id=3D"14">
+ and=20
+</g>&nbsp;co-founder of Postman, dives into QA best practices and&nbsp;<a h=
+ref=3D
+"http://go.getpostman.com/Y0hW40BGd003k000DMU03D5" target=3D"_blank" id=3D"=
+"
+>how you can upgrade and simplify your QA workflow</a>&nbsp;in his latest a=
+rticle in <em>ProgrammableWeb</em>.<br></p>=20
+<p><a href=3D
+"http://go.getpostman.com/dh0Dd5eG430Dk00MWM000U0" target=3D"_blank"
+>Postman was named one of the top market players</a>&nbsp;in&nbsp;<em>Marke=
+t Research News</em>' latest API Management Software Report.&nbsp;</p>=20
+<p>In this article from <em>The Software Report,&nbsp;</em>Kasey Byrne, our=
+ VP of Marketing, discusses how she leverages the most practical and <a hre=
+f=3D
+"http://go.getpostman.com/B500NU0DG000W04M0kfDd3h" target=3D"_blank" id=3D"=
+"
+>effective strategies to lead her team</a>&nbsp;at Postman.&nbsp;</p>=20
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<div style=3D"display: block !important;">=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+96%; max-width: 490px; margin: 0 auto;background-color: #FFFFFF; margin: 0 =
+auto; text-align:center;" width=3D"100%" bgcolor=3D"#FFFFFF">=20
+<tbody>=20
+<tr>=20
+<td>=20
+<table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center">=20
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>=20
+<tr>=20
+<td align=3D"center" style=3D"border-radius: 35px;" bgcolor=3D"#ff6c37"> <a=
+ href=3D
+"http://go.getpostman.com/VkMO000h450D000UDW3dgG0" target=3D"_blank" class=
+=3D"button" style=3D"font-size: 12px; line-height: 22px !important; color: =
+#ffffff !important; text-decoration: none; text-decoration: none;border-rad=
+ius: 35px; padding: 3px 30px; border: 1px solid #ff6c37; display: inline-bl=
+ock;font-family:'Open Sans', -apple-system, Helvetica, Arial, sans-serif !i=
+mportant;"
+>View All Press</a> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td> &nbsp; </td>=20
+</tr>=20
+</tbody>=20
+</table>=20
+</div> </td>=20
+</tr>=20
+<tr height=3D"25">=20
+<td style=3D"font-size: 0px; line-height: 0;">&nbsp;</td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>
+</table>=20
+<!--[if mso]>
+        =09=09=09=09=09</td>
+        =09=09=09=09=09<td style=3D"padding:0px;margin:0px;">&nbsp;</td>
+        =09=09=09=09</tr>
+        =09=09=09</table>
+        =09=09=09<![endif]-->=20
+<!-- END LIQUID WRAPPER --> </td>=20
+</tr>=20
+<tr>=20
+<td>=20
+<table class=3D"inner-table" summary=3D"inner-table" align=3D"center" valig=
+n=3D"top" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: =
+100%;margin: 0 auto; background-color: #transparent; margin: 0 auto; text-a=
+lign:center;" width=3D"100%" bgcolor=3D"#F4815B">=20
+<tbody>=20
+<tr height=3D"136">=20
+<td>=20
+<div class=3D"mktoText" id=3D"footerText" style=3D"font-family: 'Open Sans'=
+, -apple-system, Helvetica, Arial, sans-serif !important; font-size: 10px; =
+line-height: 14px; color: #ffffff !important;">
+<p style=3D"font-family: 'Open Sans', -apple-system, Helvetica, Arial, sans=
+-serif !important; font-size: 10px; line-height: 14px; color: #ffffff !impo=
+rtant;">=C2=A9 2019 Postman Inc., All Rights Reserved.<br><a href=3D
+"http://go.getpostman.com/q5DU0h0kDP0GW400M0dh003" style=3D"text-decoration=
+: none !important; color: #ffffff !important;"
+>595 Market Street, Suite 1130&nbsp; San Francisco, CA 94105</a><br>Click t=
+o <strong><a href=3D"https://pages.getpostman.com/UnsubscribePage.html?mkt_=
+unsubscribe=3D1&mkt_tok=3DeyJpIjoiT1RCaE1EazJOamhtWm1OaSIsInQiOiJjM3o0SFMyQ=
+k9FaDBqM0ZFUkZ3QThUemNqLzJUUERqTmczUVNtWGJTekV5SC9ZeEo4RnREcFZvOE1GTVZaVEpG=
+cy9KOFNZVDNac3BxdU9KQ2VCeWNBdUkxQnNXQzJlVUFMTzFQR0sybzMvZjMzU0lwUHlQUTRrVG9=
+SL2ZSZ1ptWCJ9" style=3D"color: #ffffff !important;">unsubscribe</a></strong=
+> from these emails.</p>
+</div> </td>=20
+</tr>=20
+</tbody>=20
+</table> </td>=20
+</tr>=20
+</tbody>=20
+</table> =20
+
+<img src=3D"http://go.getpostman.com/trk?t=3D1&mid=3DMDY3LVVNRC05OTE6MzEyMD=
+ozNDE4OjY3ODU6MDo0MDkyOjk6MTk4NDg6MTM4MzU4MDk6eWxhbi5hbGxvdWNoZUBnbWFpbC5jb=
+20%3D" width=3D"1" height=3D"1" style=3D"display:none !important;" alt=3D""=
+ />
+</body>
+</html>
+------=_Part_-789641433_2069183548.1556081505928--

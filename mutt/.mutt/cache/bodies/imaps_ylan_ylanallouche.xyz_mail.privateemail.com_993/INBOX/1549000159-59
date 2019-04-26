@@ -1,0 +1,37 @@
+Return-Path: <ylan@ylanallouche.xyz>
+Delivered-To: ylan@ylanallouche.xyz
+Received: from DIR-01 ([10.20.147.191])
+	by IMAP-32 with LMTP
+	id SA4rBjJEu1zRMgAAPgDuKg
+	(envelope-from <ylan@ylanallouche.xyz>)
+	for <ylan@ylanallouche.xyz>; Sat, 20 Apr 2019 12:09:22 -0400
+Received: from MTA-09.privateemail.com ([10.20.147.19])
+	by DIR-01 with LMTP
+	id YOTdBTJEu1y8egAA6Rt3mQ
+	(envelope-from <ylan@ylanallouche.xyz>)
+	for <ylan@ylanallouche.xyz>; Sat, 20 Apr 2019 12:09:22 -0400
+Received: from MTA-09.privateemail.com (localhost [127.0.0.1])
+	by MTA-09.privateemail.com (Postfix) with ESMTP id 027F86003F
+	for <ylan@ylanallouche.xyz>; Sat, 20 Apr 2019 12:09:22 -0400 (EDT)
+Received: from laptop (unknown [10.20.151.229])
+	by MTA-09.privateemail.com (Postfix) with ESMTPA id A7B6A60034
+	for <ylan@ylanallouche.xyz>; Sat, 20 Apr 2019 16:09:21 +0000 (UTC)
+Date: Sat, 20 Apr 2019 12:09:13 -0400
+From: Ylan Allouche <ylan@ylanallouche.xyz>
+To: ylan@ylanallouche.xyz
+Subject: test urls
+Message-ID: <20190420160913.xgvqjciqpgztnhxg@laptop>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+User-Agent: NeoMutt/20180716
+X-Virus-Scanned: ClamAV using ClamSMTP
+
+https://www.youtube.com/watch?v=nbzFl5D6uv8
+
+https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/befbcde0-9b36-11e6-95b9-00163ed833e7/260663710/the-test-fun-for-friends-screenshot.jpg
+
+https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
+
+-- 
+Ylan Allouche
