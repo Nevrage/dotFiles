@@ -7,10 +7,10 @@ floating_modifier $mod
 
 exec_always --no-startup-id polybar example 
 
-bindsym $mod+Return exec kitty  --single-instance
+bindsym $mod+Return exec kitty  
 bindsym $mod+Ctrl+Return exec xterm 
 # bindsym $mod+Shift+Return exec xterm -e "xdg-open ~"
-bindsym $mod+Shift+Return exec xterm -e "ranger ~"
+bindsym $mod+Shift+Return exec kitty ranger ~
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -25,7 +25,7 @@ bindsym $mod+minus exec --no-startup-id mpc volume -5 && notify-send "mpd volume
 bindsym $mod+x exec --no-startup-id rofi -modi "clipboard:greenclip print"   -theme ~/.cache/wal/colors-rofi-dark.rasi   -show clipboard -run-command '{cmd}'
 bindsym $mod+Shift+p exec mpc prev
 # bindsym $mod+Shift+r exec mpc random
-bindsym $mod+m exec xterm -fs 20 -e neomutt
+bindsym $mod+m exec kitty  neomutt
 # bindsym $mod+v exec xterm -fs 5 -e "cava"
 bindsym $mod+v exec --no-startup-id export selected=$(sed -e 's/^"//' -e 's/"$//' <<< $(buku -t pp -r "youtube|watch"   -j | jq '.[] |  "\(.index) \(.title)"') | tac | rofi -dmenu - -theme ~/.cache/wal/colors-rofi-dark.rasi    -p "Select Video:" | awk '{print $1}') && mpv $(buku -p   $selected  -f 10)
 bindsym $mod+s exec --no-startup-id export selected=$(sed -e 's/^"//' -e 's/"$//' <<< $(buku -p -j | jq '.[] |  "\(.index) \(.title)"') | tac | rofi -dmenu -i   -theme ~/.cache/wal/colors-rofi-dark.rasi   -p "select bookmark to edit" | awk '{print $1}') && xterm -class "BME" -e 'buku -w $selected'

@@ -285,3 +285,6 @@ xnoremap <leader>c <esc>:'<,'>:w !bash<CR>
 set foldmethod=indent
 autocmd FileType markdown setlocal spell
 autocmd FileType mail setlocal spell
+
+highlight Comment cterm=italic
+
