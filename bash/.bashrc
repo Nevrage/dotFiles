@@ -328,6 +328,9 @@ xrdb -merge ~/.cache/wal/colors.Xresources
 i3-msg reload
 i3-msg restart
 }
+ansi()          { echo -e "\e[${1}m${*:2}\e[0m"; }
+bold()          { ansi 1 "$@"; }
+italic()        { ansi 3 "$@"; }
 
 # export PS1="\[$(tput setaf 1)\][\[$(tput setaf 2)\]\A\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\u\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\h\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\W\[$(tput setaf 1)\]]\[$(tput sgr0)\] \`parse_git_branch\` \[$reset\]\n\[$green\] > \[$black\]"
 
