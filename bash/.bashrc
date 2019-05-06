@@ -405,6 +405,11 @@ include () {
     [[ -f "$1" ]] && source "$1"
 }
 
+
+QR () {
+        qrencode "$@" -d 300 -s 20  -o /tmp/qr.png && sxiv /tmp/qr.png
+}
+
 # include FILE
 if [ -f /path/to/some/file ]; then
     source /path/to/some/file
@@ -437,3 +442,6 @@ alias watsh='watch -c -t \"!!\"'
 alias i3="vim ~/.config/i3/config"
 alias vg="vim +Goyo "
 alias sh="stow -t ~"
+alias torrent="stig set connect.host $torrent"
+alias d="kitty +kitten diff"
+alias icat="kitty +kitten icat"

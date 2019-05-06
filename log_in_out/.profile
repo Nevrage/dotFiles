@@ -6,6 +6,8 @@ export PLAYER="mpv"
 export READER="zathura"
 export IMGVIEWER="feh"
 export HomeServer="home.ym"
+export torrent="home.ym"
+export DE="i3"
 
 # jupyter lab  --NotebookApp.token=  & 
 export PATH="$PATH:$HOME/Scripts"
@@ -25,7 +27,7 @@ wal -Rn
 
  # Start graphical server if i3 not already running.
  if [ "$(tty)" = "/dev/tty1" ]; then
-  pgrep -x i3 || exec startx
+  pgrep -x $DE || exec startx
  fi
 
 

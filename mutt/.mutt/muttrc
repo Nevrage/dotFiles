@@ -26,9 +26,9 @@ set fast_reply =yes
 set sleep_time = 0 
 
 # set imap_keepalive=900   # Set lower if connection times out
-set header_cache=~/.mutt/cache/headers
+set header_cache=~/.cache/mail/headers
 # set trash='+kws/Trash'
-set message_cachedir=~/.mutt/cache/bodies
+set message_cachedir=~/.cache/mail/bodies
 
 ##SMTP,For Sent mail
 

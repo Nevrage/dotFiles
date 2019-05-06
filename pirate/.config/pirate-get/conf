@@ -3,10 +3,10 @@
 directory = ~/Downloads/transmission
 
 ; save each selected magnet link in a .magnet file
-magnets = false
+magnets = true
 
 ; save each selected torrent in a .torrent file
-torrents = false
+torrents = true 
 
 [LocalDB]
 ; use a local copy of the csv formatted pirate bay database
@@ -18,15 +18,15 @@ path = ~/downloads/transmission/db
 [Misc]
 ; specify a custom command for opening the magnet
 ; ex. myprogram --open %s
-; %s represent the magnet uri
-openCommand = transmission-remote --add %s & 
+# openCommand = transmission-remote home.ym -add %s 
+openCommand = transmission-remote -add %s 
 
 ; open magnets with transmission-remote client
-transmission = true
+; transmission = false
 ; set to username:password if needed
-transmission-auth =
+; transmission-auth =
 ; set to the port number if needed
-transmission-port = 9091
+; transmission-port = 9091
 
 ; use colored output
 colors = true

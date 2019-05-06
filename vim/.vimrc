@@ -288,3 +288,7 @@ autocmd FileType mail setlocal spell
 
 highlight Comment cterm=italic
 
+
+
+let R_term_cmd = "kitty"
+autocmd BufNewFile,BufRead buku-edit* set ft=buku

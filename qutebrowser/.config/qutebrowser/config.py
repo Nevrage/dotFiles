@@ -1296,8 +1296,8 @@ c.bindings.key_mappings = {'<Ctrl+[>': '<Escape>', '<Ctrl+6>': '<Ctrl+^>', '<Ctr
 # Bindings for normal mode
 config.bind("'", 'enter-mode jump_mark')
 config.bind('+', 'zoom-in')
-config.bind(',T', 'hint -r links spawn transmission-remote -a {hint-url}')
-config.bind(',t', 'hint links spawn transmission-remote -a {hint-url}')
+config.bind(',T', 'hint links spawn transmission-remote -a {hint-url}')
+config.bind(',t', 'hint links spawn transmission-remote home.ym -a {hint-url}')
 config.bind('-', 'zoom-out')
 config.bind('.', 'repeat-command')
 config.bind('/', 'set-cmd-text /')

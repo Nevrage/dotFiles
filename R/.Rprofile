@@ -6,7 +6,7 @@ library(crayon)
 library(grDevices)
 
 options(prompt = blue("⇨  "))
-# options(prompt = blue("─╼ "))
+options(prompt = blue("==>"))
 
 options(radian.editing_mode = "vi",
         radian.auto_match = TRUE)

@@ -31,7 +31,7 @@ bindsym $mod+v exec --no-startup-id export selected=$(sed -e 's/^"//' -e 's/"$//
 bindsym $mod+s exec --no-startup-id export selected=$(sed -e 's/^"//' -e 's/"$//' <<< $(buku -p -j | jq '.[] |  "\(.index) \(.title)"') | tac | rofi -dmenu -i   -theme ~/.cache/wal/colors-rofi-dark.rasi   -p "select bookmark to edit" | awk '{print $1}') && xterm -class "BME" -e 'buku -w $selected'
 bindsym $mod+z exec --no-startup-id buku -d $(sed -e 's/^"//' -e 's/"$//' <<< $(buku -p -j | jq '.[] |  "\(.index) \(.title)"') | tac | rofi -dmenu -i -p "select bookmark to delete" | awk '{print $1}')  --tacit  && notify-send "Bookmark deleted."
 
-bindsym $mod+Shift+t exec --no-startup-id theme=$(wal --theme | grep "-" | rofi -dmenu  -theme ~/.cache/wal/colors-rofi-dark.rasi   -p "Select theme to apply" | sed 's/-//g') &&  wal --theme $theme 
+bindsym $mod+Shift+t exec --no-startup-id theme=$(wal --theme | grep "-" | rofi -dmenu  -theme ~/.cache/wal/colors-rofi-dark.rasi   -p "Select theme to apply" | sed 's/-//g') &&  wal --theme $theme  -l
 bindsym $mod+i exec --no-startup-id bukudl
 # bindsym $mod+i exec --no-startup-id ~/files/data/scripts/tagagg.r think &&  cat /tmp/think | rofi -dmenu dmenu
 bindsym $mod+Shift+i exec --no-startup-id tag=$(rofi -dmenu  -theme ~/.cache/wal/colors-rofi-dark.rasi  )   &&  ~/Files/Data/Scripts/tagagg.R $tag && cat /tmp/$tag | rofi -dmenu   -theme ~/.cache/wal/colors-rofi-dark.rasi 
@@ -175,7 +175,8 @@ bindsym $mod+space focus mode_toggle
         # bindsym $mod+shift+a exec --no-startup-id $TERM -e "mpsyt /$(echo " " | rofi -dmenu -theme ~/.cache/wal/colors-rofi-dark.rasi -l 0 -p "Youtube Search")"
         bindsym $mod+shift+a exec --no-startup-id rofi-surfraw
 
-bindsym $mod+Shift+o exec --no-startup-id ~/Downloads/github/buku_run/buku_run
+# bindsym $mod+Shift+o exec --no-startup-id ~/Downloads/github/buku_run/buku_run
+bindsym $mod+Shift+o exec --no-startup-id buku_run
 bindsym $mod+Shift+w exec --no-startup-id rofi-wifi-menu
 # bindsym $mod+Shift+h exec --no-startup-id ~/github/steamRofi
 
@@ -185,10 +186,10 @@ bindsym $mod+Ctrl+p exec --no-startup-id rofi-mpd -p
 
 bindsym $mod+Shift+z exec --no-startup-id i3lock-fancy
 
-exec_always --no-startup-id transmission-daemon &
+# exec_always --no-startup-id transmission-daemon &
 exec_always --no-startup-id feh --bg-scale $(cat ~/.cache/wal/wal)
 exec_always --no-startup-id mpd
-exec_always --no-startup-id /opt/urserver/urserver
+# exec_always --no-startup-id /opt/urserver/urserver
 exec_always --no-startup-id dunst
 exec_always --no-startup-id libinput-gestures
 exec_always --no-startup-id greenclip daemon
@@ -215,10 +216,10 @@ bindsym $mod+Ctrl+l resize grow width 1px or 1ppt
 
 bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
 
-bindsym $mod+Ctrl+Shift+l resize grow width 10 px or 10 ppt
-bindsym $mod+Ctrl+Shift+k resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+Shift+j resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+Shift+h resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+Shift+l resize grow width 100 px or 100 ppt
+bindsym $mod+Ctrl+Shift+k resize shrink height 100 px or 100 ppt
+bindsym $mod+Ctrl+Shift+j resize grow height 100 px or 100 ppt
+bindsym $mod+Ctrl+Shift+h resize shrink width 100 px or 100 ppt
 
 bindsym $mod+Ctrl+D exec --no-startup-id ppid=$(pid=$(ps -aux | rofi -dmenu -i -p "Select process to kill") -i && echo $pid | awk ' {print $2}' ) && kill -9 $ppid
 bindsym $mod+Shift+r  exec --no-startup-id xrandr -s $(xrandr | rofi -dmenu  -p "Choose resolution: " -theme ~/.cache/wal/colors-rofi-dark.rasi  | awk '{print $1}')
@@ -256,8 +257,8 @@ bindsym $mod+u exec xterm -class dropdown -e "tmux attach -t Tasks"
 bindsym XF86MonBrightnessDown exec sudo su -c 'echo  $(echo "$(cat /sys/class/backlight/intel_backlight/brightness) - 100" | bc)  >  /sys/class/backlight/intel_backlight/brightness' - root
 bindsym XF86MonBrightnessUp exec sudo su -c 'echo  $(echo "$(cat /sys/class/backlight/intel_backlight/brightness) + 100" | bc)  >  /sys/class/backlight/intel_backlight/brightness' - root
 
-bindsym XF86Search exec kitty vim $(locate home | rofi -dmenu -i -p "Select file to open")
-bindsym Shift+XF86Search exec xdg-open $(locate home | rofi -dmenu -i -p "Select file to open")  
+bindsym XF86Search exec kitty vim $(locate home | rofi -sorting-methhod 'fzf' -dmenu -i -p "Select file to open")
+bindsym Shift+XF86Search exec xdg-open $(locate home | rofi -sorting-method 'fzf' -dmenu -i -p "Select file to open")  
 
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && notify-send "Volume: $(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))"
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && notify-send "Volume: $(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))"
