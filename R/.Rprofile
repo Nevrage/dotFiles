@@ -7,6 +7,7 @@ library(grDevices)
 
 options(prompt = blue("⇨  "))
 options(prompt = blue("==>"))
+# options(prompt = blue(paste("",getwd(),"")))
 
 options(radian.editing_mode = "vi",
         radian.auto_match = TRUE)
@@ -44,6 +45,7 @@ setOutputColors256( normal = escaped[[3]],
                                        }
 
 makecolors()
+filer <- dplyr::filter
 }
 cc <- function() cat(c("\033[2J","\033[0;0H"))
 

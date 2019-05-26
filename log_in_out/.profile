@@ -1,5 +1,3 @@
-#!/bin/bash
-
 export BROWSER="qutebrowser"
 export termbrowser="w3m"
 export PLAYER="mpv"

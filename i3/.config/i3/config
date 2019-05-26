@@ -27,7 +27,8 @@ bindsym $mod+Shift+p exec mpc prev
 # bindsym $mod+Shift+r exec mpc random
 bindsym $mod+m exec kitty  neomutt
 # bindsym $mod+v exec xterm -fs 5 -e "cava"
-bindsym $mod+v exec --no-startup-id export selected=$(sed -e 's/^"//' -e 's/"$//' <<< $(buku -t pp -r "youtube|watch"   -j | jq '.[] |  "\(.index) \(.title)"') | tac | rofi -dmenu - -theme ~/.cache/wal/colors-rofi-dark.rasi    -p "Select Video:" | awk '{print $1}') && mpv $(buku -p   $selected  -f 10)
+# bindsym $mod+v exec --no-startup-id export selected=$(sed -e 's/^"//' -e 's/"$//' <<< $(buku -t pp -r "youtube|watch"   -j | jq '.[] |  "\(.index) \(.title)"') | tac | rofi -dmenu - -theme ~/.cache/wal/colors-rofi-dark.rasi    -p "Select Video:" | awk '{print $1}') && mpv $(buku -p   $selected  -f 10)
+bindsym $mod+v exec --no-startup-id bukuBrowser pendingVids
 bindsym $mod+s exec --no-startup-id export selected=$(sed -e 's/^"//' -e 's/"$//' <<< $(buku -p -j | jq '.[] |  "\(.index) \(.title)"') | tac | rofi -dmenu -i   -theme ~/.cache/wal/colors-rofi-dark.rasi   -p "select bookmark to edit" | awk '{print $1}') && xterm -class "BME" -e 'buku -w $selected'
 bindsym $mod+z exec --no-startup-id buku -d $(sed -e 's/^"//' -e 's/"$//' <<< $(buku -p -j | jq '.[] |  "\(.index) \(.title)"') | tac | rofi -dmenu -i -p "select bookmark to delete" | awk '{print $1}')  --tacit  && notify-send "Bookmark deleted."
 
@@ -72,7 +73,8 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $mod+s layout stacking
 # bindsym $mod+w layout tabbed
-bindsym $mod+Shift+e layout toggle split
+bindsym $mod+XF86AudioPlay exec ffmpeg -y -f alsa -i hw:0 -f x11grab -framerate 60 -video_size 3200x1800 -i :0.0+0,0 -c:v libx264 -pix_fmt yuv420p -qp 0 -preset ultrafast ~/output.avi
+bindsym $mod+Shift+XF86AudioPlay exec killall ffmpeg
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -175,8 +177,7 @@ bindsym $mod+space focus mode_toggle
         # bindsym $mod+shift+a exec --no-startup-id $TERM -e "mpsyt /$(echo " " | rofi -dmenu -theme ~/.cache/wal/colors-rofi-dark.rasi -l 0 -p "Youtube Search")"
         bindsym $mod+shift+a exec --no-startup-id rofi-surfraw
 
-# bindsym $mod+Shift+o exec --no-startup-id ~/Downloads/github/buku_run/buku_run
-bindsym $mod+Shift+o exec --no-startup-id buku_run
+bindsym $mod+Shift+o exec --no-startup-id bukuBrowser BM
 bindsym $mod+Shift+w exec --no-startup-id rofi-wifi-menu
 # bindsym $mod+Shift+h exec --no-startup-id ~/github/steamRofi
 
@@ -256,6 +257,7 @@ for_window[class="dropdown"] bordel pixel 5
 bindsym $mod+u exec xterm -class dropdown -e "tmux attach -t Tasks"
 bindsym XF86MonBrightnessDown exec sudo su -c 'echo  $(echo "$(cat /sys/class/backlight/intel_backlight/brightness) - 100" | bc)  >  /sys/class/backlight/intel_backlight/brightness' - root
 bindsym XF86MonBrightnessUp exec sudo su -c 'echo  $(echo "$(cat /sys/class/backlight/intel_backlight/brightness) + 100" | bc)  >  /sys/class/backlight/intel_backlight/brightness' - root
+bindsym Shift+XF86MonBrightnessUp exec xset dpms force off
 
 bindsym XF86Search exec kitty vim $(locate home | rofi -sorting-methhod 'fzf' -dmenu -i -p "Select file to open")
 bindsym Shift+XF86Search exec xdg-open $(locate home | rofi -sorting-method 'fzf' -dmenu -i -p "Select file to open")  
