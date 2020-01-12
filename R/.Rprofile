@@ -4,13 +4,22 @@ library(tidyverse)
 library(jsonlite)
 library(crayon)
 library(grDevices)
+s <- function() {system("ls_extended")}
 
 options(prompt = blue("⇨  "))
 options(prompt = blue("==>"))
+
+pshow <- function() {
+        ggsave("/tmp/ggplot.jpg")
+        system("kitty +kitten icat /tmp/ggplot.jpg")
+}
+
 # options(prompt = blue(paste("",getwd(),"")))
 
 options(radian.editing_mode = "vi",
         radian.auto_match = TRUE)
+monday <- function(x){
+        7 *floor(as.numeric(x-1+4)/7) + as.Date(1-4, origin = "1970-01-01")
 
 
 makecolors <- function() {
@@ -22,7 +31,6 @@ makecolors <- function() {
 
     colours <- lapply(colors, colorize)
 
-lapply(colours, function(x){paste(x)})
 escaped <- lapply(colours, function(x){paste("\x1b[38;2;", x, "m",sep="")})
 
 
@@ -44,34 +52,44 @@ setOutputColors256( normal = escaped[[3]],
                     false = escaped[[16]])
                                        }
 
+if(file.exists("~/.cache/wal/colors.json")){
 makecolors()
-filer <- dplyr::filter
-}
-cc <- function() cat(c("\033[2J","\033[0;0H"))
+}}
 
 rm(makecolors)
 
-cc()
-cc()
 
 
-#options(continue="+")
+
+# add if interactive to fix some of the issues while isntalling new packages
+options(java.parameters = "-Xmx2048m")
+
+}
+filter <- dplyr::filter
+
+options(continue="+ ... ")
 options(htmlhelp=TRUE)
-# options(tab.width = 2)
-# options(width = 130)
-# options(graphics.record=TRUE) 
+
+options(tab.width = 2)
+options(width = 130)
+options(graphics.record=TRUE) 
 
 .First  <- function(){
-
+cat(noquote(paste("Login time:", Sys.time(),"\n")))
+cat(noquote(paste("Working Directory:", getwd(),"\n")))
 }
 
 .Last  <- function(){
 
 }
+cc <- function() cat(c("\033[2J","\033[0;0H"))
 
-# add if interactive to fix some of the issues while isntalling new packages
-options(java.parameters = "-Xmx2048m")
-cat(noquote(paste("Login time:", Sys.time(),"\n")))
-cat(noquote(paste("Working Directory:", getwd(),"\n")))
 
-filer <- dplyr::filter
+
+if(file.exists("~/Scripts/R2profile")){}
+if(file.exists("~/.R2profile")){}
+
+
+
+cc()
+cc()
