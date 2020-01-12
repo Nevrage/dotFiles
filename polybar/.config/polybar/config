@@ -1,24 +1,15 @@
-;=====================================================
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;=====================================================
-
 [colors]
 background-alt = ${xrdb:color1}
 foreground = ${xrdb:color7}
 foreground-alt = #555
 primary = ${xrdb:color11}
-secondary = ${xrdb:colors4}
+secondary = ${xrdb:color4}
 background = rgba(${xrdb:background}, .221)
 alert = ${xrdb:colors9}
 
 [bar/bar]
 width = 100%
-height = 30
+height = 10
 offset-x = 0%
 offset-y = 0%
 radius = 0
@@ -30,52 +21,30 @@ modules-center = mpd
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 100
+height = 50
 ;offset-x = 0%
-;offset-y = 50%
+offset-y = 50%
 radius = 0.0
 fixed-center = false
-
 background = ${colors.background}
 foreground = ${colors.foreground}
-
-line-size = 3
+line-size = 1 
 line-color = #f00
-
 border-size = 1
 border-color = #00000000
-
 padding-left = 0
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = FuraCode Nerd Font:style=Regular:size=25;1
-;font-0 = fixed:pixelsize=15;1
-font-1 = unifont:fontformat=truetype:size=45:antialias=false;0
-font-2 = siji:pixelsize=30;1
-
-modules-left = mpd2 mpd3 mpd volume backlight-acpi
-modules-center =i4
-modules-right = weather eth temperature date powermenu battery
-
+padding-right = 1
+module-margin-left = 3
+module-margin-right = 1
+font-2 = FuraCode Nerd Font:style=Regular:size=20;1
+font-0 = NotoEmoji Nerd :pixelsize=20;1
+modules-left = i4 mpd2 mpd
+modules-center = xwindow 
+modules-right = volume notmuch weather eth temperature date battery
 tray-position = right
-tray-padding = 2
-;tray-transparent = true
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
+tray-padding =1 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-
 cursor-click = pointer
 cursor-scroll = ns-resize
 
@@ -157,7 +126,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = wlp2s0
 interval = 3.0
 
 format-connected-underline = ${colors.primary}
@@ -190,11 +159,11 @@ label = %date% %time%
 [module/volume]
 type = internal/volume
 
-format-volume = <label-volume> <bar-volume>
+format-volume = vol: <label-volume> 
 label-volume = %percentage%%{F-}%
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
+;format-muted-prefix = " "
 format-muted-foreground = ${colors.primary}
 
 label-muted = sound muted
@@ -255,8 +224,8 @@ format-underline = #FFFFFF
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
-label = %temperature%
-label-warn = %temperature%
+label = %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
@@ -399,7 +368,17 @@ label-focused-underline = ${colors.primary}
 type = custom/script
 exec = wedder
 exec-if = ping openweathermap.org -c 1
-tail = true
+tail =  true
 #click-left = xdg-open "https://google.de/search?q=weather"
 # or using the city determined by wedder:
 click-left = xdg-open "https://google.de/search?q=weather+$(wedder -C)"
+
+
+[module/notmuch]
+type = custom/script
+exec = newmail-bar.sh
+exec-if = ping openweathermap.org -c 1
+tail = false
+interval = 5
+click-left = kitty neomutt
+
