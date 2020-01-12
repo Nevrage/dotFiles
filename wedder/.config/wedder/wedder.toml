@@ -16,7 +16,8 @@
 #   <sunrise>
 #   <sunset>
 # default: '<icon> <temperature_celsius>°C'
-format = '<icon> <temperature_celsius>°C Wind: <wind_speed>  //  <sunrise> - <sunset>'
+# format = '<icon> <temperature_celsius>°C Wind: <wind_speed>  //  <sunrise> - <sunset>'
+format = '<icon> <temperature_celsius>°C Wind: <wind_speed>'
 interval = 300
 
 [weather]
