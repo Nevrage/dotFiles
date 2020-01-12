@@ -19,13 +19,13 @@ bindsym $mod+Shift+q kill
 bindsym $mod+shift+y exec --no-startup-id export zone=$(find  /usr/share/zoneinfo/ | rofi -dmenu -p "Select timezone:" -i  -theme ~/.cache/wal/colors-rofi-dark.rasi  )  && sudo ln -sf $zone /etc/localtime
 bindsym $mod+p exec mpc toggle 
 bindsym $mod+n exec mpc next
-bindsym $mod+b  exec multimc -l $(cd ~/Files/Data/Minecraft/instances/ && ls -l | grep ^d  | sed 's:.*\ ::g' | grep -v "_MMC" | rofi -i -l 5 -dmenu -p "Pick Mc Instance"    -theme ~/.cache/wal/colors-rofi-dark.rasi  )
+bindsym $mod+b  exec multimc -l $(cd ~/Games/PC/Minecraft/instances && ls -l | grep ^d  | sed 's:.*\ ::g' | grep -v "_MMC" | rofi -i -l 5 -dmenu -p "Pick Mc Instance"    -theme ~/.cache/wal/colors-rofi-dark.rasi  )
 bindsym $mod+plus  exec --no-startup-id mpc volume +5 && notify-send "mpd volume: $(mpc | head -n 2 | tail -n 1 | awk {'print $4'})"
 bindsym $mod+minus exec --no-startup-id mpc volume -5 && notify-send "mpd volume: $(mpc | head -n 2 | tail -n 1 | awk {'print $4'})"
 bindsym $mod+x exec --no-startup-id rofi -modi "clipboard:greenclip print"   -theme ~/.cache/wal/colors-rofi-dark.rasi   -show clipboard -run-command '{cmd}'
 bindsym $mod+Shift+p exec mpc prev
 # bindsym $mod+Shift+r exec mpc random
-bindsym $mod+m exec kitty  neomutt
+bindsym $mod+m exec kitty  --title Mail neomutt
 # bindsym $mod+v exec xterm -fs 5 -e "cava"
 # bindsym $mod+v exec --no-startup-id export selected=$(sed -e 's/^"//' -e 's/"$//' <<< $(buku -t pp -r "youtube|watch"   -j | jq '.[] |  "\(.index) \(.title)"') | tac | rofi -dmenu - -theme ~/.cache/wal/colors-rofi-dark.rasi    -p "Select Video:" | awk '{print $1}') && mpv $(buku -p   $selected  -f 10)
 bindsym $mod+v exec --no-startup-id bukuBrowser pendingVids
@@ -178,6 +178,9 @@ bindsym $mod+space focus mode_toggle
         bindsym $mod+shift+a exec --no-startup-id rofi-surfraw
 
 bindsym $mod+Shift+o exec --no-startup-id bukuBrowser BM
+bindsym Ctrl+1  exec --no-startup-id bukuBrowser im 
+bindsym Ctrl+2  exec --no-startup-id bar-toggle.sh
+bindsym Ctrl+3  exec --no-startup-id ksnip -r
 bindsym $mod+Shift+w exec --no-startup-id rofi-wifi-menu
 # bindsym $mod+Shift+h exec --no-startup-id ~/github/steamRofi
 
@@ -188,7 +191,9 @@ bindsym $mod+Ctrl+p exec --no-startup-id rofi-mpd -p
 bindsym $mod+Shift+z exec --no-startup-id i3lock-fancy
 
 # exec_always --no-startup-id transmission-daemon &
-exec_always --no-startup-id feh --bg-scale $(cat ~/.cache/wal/wal)
+# exec_always --no-startup-id feh --bg-scale $(cat ~/.cache/wal/wal)
+exec_always --no-startup-id feh --bg-scale ~/.cache/background.png
+
 exec_always --no-startup-id mpd
 # exec_always --no-startup-id /opt/urserver/urserver
 exec_always --no-startup-id dunst
@@ -262,8 +267,13 @@ bindsym Shift+XF86MonBrightnessUp exec xset dpms force off
 bindsym XF86Search exec kitty vim $(locate home | rofi -sorting-methhod 'fzf' -dmenu -i -p "Select file to open")
 bindsym Shift+XF86Search exec xdg-open $(locate home | rofi -sorting-method 'fzf' -dmenu -i -p "Select file to open")  
 
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && notify-send "Volume: $(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))"
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && notify-send "Volume: $(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))"
+bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- && notify-send "Volume: $(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))"
+bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ && notify-send "Volume: $(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))"
+
+bindsym $mod + F2  exec amixer -D pulse set Master 5%- # && notify-send "Volume: $(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))"
+bindsym $mod + F3  exec amixer -D pulse set Master 5%+ # && notify-send "Volume: $(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master))"
+bindsym $mod+Shift+n  exec kitty --title News newsboat 
+
 
 exec_always --no-startup-id  compton -b
 exec_always --no-startup-id  musnify-mpd
