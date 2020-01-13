@@ -848,7 +848,7 @@ c.window.title_format = '{perc}{title}{title_sep}qutebrowser'
 
 # Default zoom level.
 # Type: Perc
-c.zoom.default = '100%'
+c.zoom.default = '125%'
 
 # Available zoom levels.
 # Type: List of Perc
@@ -1298,6 +1298,8 @@ config.bind("'", 'enter-mode jump_mark')
 config.bind('+', 'zoom-in')
 config.bind(',T', 'hint links spawn transmission-remote -a {hint-url}')
 config.bind(',t', 'hint links spawn transmission-remote home.ym -a {hint-url}')
+config.bind(',s', 'hint links spawn addYtChannelRss.sh  {hint-url}')
+config.bind(',S', 'hint links spawn addYtChannelRss.sh  {url}')
 config.bind('-', 'zoom-out')
 config.bind('.', 'repeat-command')
 config.bind('/', 'set-cmd-text /')
