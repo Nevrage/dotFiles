@@ -4,11 +4,15 @@ call vundle#begin()
 
 "Plugin 'seletskiy/vim-pythonx'
 Plugin 'mboughaba/i3config.vim'
+Plugin 'sirtaj/vim-openscad'
 Plugin 'johngrib/Vim-Game-Snake'
+Plugin 'junegunn/fzf.vim'
 Plugin 'johngrib/vim-game-code-break'
 Plugin 'jalvesaq/vimcmdline'
 Plugin 'kurkale6ka/vim-chess'
+Plugin 'vim-scripts/Chess-files-.pgn-extension'
 Plugin 'KabbAmine/vCoolor.vim'
+Plugin 'sukima/vim-tiddlywiki'
 Plugin 'l04m33/vlime', {'rtp': 'vim/'}
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
@@ -49,6 +53,7 @@ Plugin 'rafaqz/ranger.vim'
 Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'liuchengxu/vim-which-key'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'vim-scripts/pgn.vim'
 " Plugin 'ujihisa/repl.vim'
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'Shougo/vimshell.vim'
@@ -57,6 +62,7 @@ Plugin 'terryma/vim-multiple-cursors'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 "set pyxversion=3
+"
 set shortmess+=I
 filetype plugin indent on    " required
 set nocompatible                  " don't need to be compatible with old vim
@@ -261,7 +267,8 @@ map <leader>ra :RangerAppend<cr>
 map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
 
 if !exists('$TMUX')
-        let cmdline_external_term_cmd = "xterm -e '%s' &"
+        "let cmdline_external_term_cmd = "xterm -e '%s' &"
+        let cmdline_external_term_cmd = "kitty"
 endif
 
 if $TMUX != ''
