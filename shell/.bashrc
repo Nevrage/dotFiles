@@ -12,3 +12,5 @@ shopt -s checkwinsize
 
 source ~/.alias.sh
 source ~/.sh.sh
+source /usr/share/fzf/completion.bash
+source /usr/share/fzf/key-bindings.bash
