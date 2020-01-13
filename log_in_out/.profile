@@ -21,6 +21,8 @@ export EDITOR="vim"
 wal -Rn
 # bash  "cd ~/Dropbox/ && tmsu mount ~/drives/dyn/"
 # exec /home/ylan/Scripts/tw_tmux.sh
+exec cd ~/Data/Perso && sudo mount ~/drives/dyn &
+#exec ~/Scripts/newmail.sh &
 
 
  # Start graphical server if i3 not already running.
