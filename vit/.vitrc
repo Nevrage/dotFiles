@@ -1,0 +1,3 @@
+map O=:! nottask %TASKID<Return>
+map ~=:! taskContext.sh %TASKID<Return>
+map C=:!w task calendar<Return>

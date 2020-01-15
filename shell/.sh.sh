@@ -50,7 +50,7 @@ function parse_git_dirty {
 
 function reloadi3() {
 killall polybar
-xrdb -merge ~/.cache/wal/colors.Xresources
+xrdb -merge ~/.cache/wal/colors.Xresources  2> /dev/null
 i3-msg reload
 i3-msg restart
 }
@@ -62,8 +62,9 @@ italic()        { ansi 3 "$@"; }
 
  export PS1="┌──\[\e[35m\]\u\[\e[m\]\[\e[31;40m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[31;40m\]\\$\[\e[m\]\W\[\e[30;47m\]\`parse_git_branch\`\[\e[m\]\n└─╼ "
 
-cat ~/.cache/wal/sequences
-source ~/.cache/wal/colors-tty.sh
+cat ~/.cache/wal/sequences 2> /dev/null
+source ~/.cache/wal/colors-tty.sh 2> /dev/null
+
 PATH="$HOME/bin:$PATH"
 
 
@@ -81,7 +82,8 @@ QR () {
 }
 
 
-source /home/ylan/.bash2rc 2> /dev/null
+source ~/Scripts/bash2rc 2> /dev/null
+source ~/.bash2rc 2> /dev/null
 
 tsks() {
         tasks $* | grep -P --colour=always '(?:^|(?<=[\\, ;\-\+\*\/]))[-+]?[0-9]*[\.eE]?[0-9]+|$'
