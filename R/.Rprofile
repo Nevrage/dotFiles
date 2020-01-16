@@ -86,8 +86,8 @@ cc <- function() cat(c("\033[2J","\033[0;0H"))
 
 
 
-if(file.exists("~/Scripts/R2profile")){}
-if(file.exists("~/.R2profile")){}
+if(file.exists("~/Scripts/R2profile")){source("~/Scripts/R2profile")}
+if(file.exists("~/.R2profile")){source("~/.R2profile")}
 
 
 
