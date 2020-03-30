@@ -26,7 +26,7 @@ let R_csv_app = 'terminal:scim'
 let R_csv_delim = ','
 
 if $TMUX != ''
-    let R_source = '~/.vim/bundle/Nvim-R/R/tmux_split.vim'
+    let R_source = '~/.vim/plugged/Nvim-R/R/tmux_split.vim'
     let R_csv_app = 'tmux new-window scim --txtdelim="\t"'
 endif
 let R_assign = 0 
