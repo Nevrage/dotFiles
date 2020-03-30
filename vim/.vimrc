@@ -13,6 +13,7 @@ Plugin 'kurkale6ka/vim-chess'
 Plugin 'vim-scripts/Chess-files-.pgn-extension'
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'sukima/vim-tiddlywiki'
+Plugin 'PProvost/vim-ps1'
 Plugin 'l04m33/vlime', {'rtp': 'vim/'}
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
