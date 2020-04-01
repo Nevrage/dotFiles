@@ -50,8 +50,6 @@ imap <silent> <C-k> :NERDTreeToggle<CR>
 " TODO: Add fzf function + mapping to chanege the current directory -
 " TODO: Close the window when NERDTree is the only thing remaining
 
-"autocmd VimEnter * NERDTree
-
 map <leader>rr :RangerEdit<cr>
 map <leader>rv :RangerVSplit<cr>
 map <leader>rs :RangerSplit<cr>
@@ -59,3 +57,14 @@ map <leader>rt :RangerTab<cr>
 map <leader>ri :RangerInsert<cr>
 map <leader>ra :RangerAppend<cr>
 map <leader>rc :set operatorfunc=RangerChangeOperator<cr>g@
+
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+"autocmd VimEnter * NERDTree
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists(“s:std_in”) | NERDTree | endif
+"autocmd bufenter * if (winnr(“$”) == 1 && exists(“b:NERDTreeType”) && b:NERDTreeType == “primary”) | q | endif
