@@ -41,10 +41,10 @@ tsks() {
 
 export PATH="$PATH:$HOME/Scripts"
 
-X=$( pidof Xorg )
-if [ ${#X} -gt 0 ]; then
-    echo ""
-else
-        ~/.profile
-fi
-clear
+#X=$( pidof Xorg )
+#if [ ${#X} -gt 0 ]; then
+#    echo ""
+#else
+        source ~/.profile
+#fi
+#clear

@@ -44,7 +44,6 @@ let g:fzf_colors =
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 "nnoremap <C-t> :call fzf#run({'sink': 'tabedit', 'options': '--multi --reverse'}) <CR>
-nnoremap <C-a> :FZF <CR>
 nmap <silent> <C-k> :NERDTreeToggle<CR>
 imap <silent> <C-k> :NERDTreeToggle<CR>
 " TODO: Add fzf function + mapping to chanege the current directory -
@@ -64,6 +63,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 "autocmd VimEnter * NERDTree
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+nnoremap <silent> <Leader>f :FZF <CR>
 
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists(“s:std_in”) | NERDTree | endif
