@@ -12,6 +12,9 @@ export TERMINAL="st"
 # export BROWSER="linkhandler"
 export TRUEBROWSER="firefox"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
+export SHELL=bash
+export NOTES="/home/ylan/Data/Perso/Notes/"
+export dyn="/home/ylan/dyn"
 
 # [ -f ~/.bashrc ] && source ~/.bashrc
 
