@@ -44,8 +44,6 @@ let g:fzf_colors =
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 "nnoremap <C-t> :call fzf#run({'sink': 'tabedit', 'options': '--multi --reverse'}) <CR>
-nmap <silent> <C-k> :NERDTreeToggle<CR>
-imap <silent> <C-k> :NERDTreeToggle<CR>
 " TODO: Add fzf function + mapping to chanege the current directory -
 " TODO: Close the window when NERDTree is the only thing remaining
 
@@ -62,8 +60,11 @@ let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 "autocmd VimEnter * NERDTree
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>
-nnoremap <silent> <Leader>f :FZF <CR>
+"TODO: auto NERDTREE or equivalent depending if in project, no/single/several file in arguments
+map <silent> <Leader>v :NERDTreeFind<CR>
+map <silent> <Leader>f :FZF <CR>
+map <silent> <Leader>t :tabnew<CR>
+map <silent> <Leader>k :NERDTreeToggle<CR>
 
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists(“s:std_in”) | NERDTree | endif
