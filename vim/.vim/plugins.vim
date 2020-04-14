@@ -43,6 +43,7 @@ Plug 'junegunn/fzf.vim'
 
 " To sort
 Plug 'rsnapshot/vim-rsnapshot'
+Plug 'vimwiki/vimwiki'
 
 " LaTeX
 "Plug "ErickChacon/vimtex"
