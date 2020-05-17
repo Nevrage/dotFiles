@@ -34,6 +34,7 @@ QR () {
 
 source ~/Scripts/bash2rc 2> /dev/null
 source ~/.bash2rc 2> /dev/null
+source .local.sh 2> /dev/null
 
 tsks() {
         tasks $* | grep -P --colour=always '(?:^|(?<=[\\, ;\-\+\*\/]))[-+]?[0-9]*[\.eE]?[0-9]+|$'
@@ -48,3 +49,14 @@ export PATH="$PATH:$HOME/Scripts"
         source ~/.profile
 #fi
 #clear
+
+function cd() {
+  command cd "$@" || return
+
+  if [[ -f .local.sh ]]
+  then
+    source .local.sh
+  else
+    ls -al
+  fi
+}
