@@ -19,7 +19,8 @@ export LANG=C
 
 # [ -f ~/.bashrc ] && source ~/.bashrc
 
- wal -Rn  2> /dev/null
+# wal -Rn  2> /dev/null
+wal -Rn  > /dev/null 2>&1
 # exec ~/Scripts/newmail.sh &
 # TMSU mount here?
 
