@@ -11,6 +11,7 @@ shopt -s checkwinsize 2> /dev/null
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 source ~/.alias.sh 2> /dev/null
+# source ~/.profile.sh 2> /dev/null
 source ~/.sh.sh 2> /dev/null
 source /usr/share/fzf/completion.bash 2> /dev/null
 source /usr/share/fzf/key-bindings.bash 2> /dev/null

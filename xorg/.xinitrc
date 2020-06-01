@@ -4,5 +4,6 @@ xset r rate 200 50
 wal -Rn
 xrdb -merge ~/.Xdefaults
 xrdb -merge ~/.cache/wal/colors.Xresources
-exec i3
+# exec i3
+exec bspwm
 

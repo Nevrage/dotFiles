@@ -8,13 +8,14 @@ export torrent="home.ym"
 export DE="i3"
 export PATH="$PATH:$HOME/Scripts"
 export EDITOR="vim"
-export TERMINAL="st"
+export TERMINAL="xterm"
 # export BROWSER="linkhandler"
 export TRUEBROWSER="firefox"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export SHELL=bash
 export NOTES="/home/ylan/Data/Perso/Notes/"
 export dyn="/home/ylan/dyn"
+export LANG=C
 
 # [ -f ~/.bashrc ] && source ~/.bashrc
 
@@ -22,9 +23,9 @@ export dyn="/home/ylan/dyn"
 # exec ~/Scripts/newmail.sh &
 # TMSU mount here?
 
- # Start graphical server if i3 not already running.
- if [ "$(tty)" = "/dev/tty1" ]; then
-  pgrep -x $DE || exec startx
- fi
+# # Start graphical server if i3 not already running.
+# if [ "$(tty)" = "/dev/tty1" ]; then
+#  pgrep -x $DE || exec startx
+# fi
 
 
