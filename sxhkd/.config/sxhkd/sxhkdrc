@@ -87,3 +87,11 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# https://github.com/desyncr/bspwmrc/blob/master/sxhkdrc
+# https://github.com/altrgeek/bspwm-polybar/blob/master/.config/sxhkd/sxhkdrc
+# https://github.com/lll2yu/dotfiles-naavi/blob/master/.config/sxhkd/sxhkdrc
+# https://github.com/lll2yu/dotfiles-naavi/blob/master/.config/sxhkd/sxhkdrc
+# https://github.com/morpheusthewhite/dotfiles/blob/master/.config/sxhkd/sxhkdrc
+# https://github.com/yousufinternet/config-files/blob/master/.config/sxhkd/sxhkdrc
+# https://github.com/onosendi/dotfiles/tree/master/.config/sxhkd

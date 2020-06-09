@@ -45,8 +45,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'rsnapshot/vim-rsnapshot'
 Plug 'vimwiki/vimwiki'
 
-" LaTeX
+" Document writing
 "Plug "ErickChacon/vimtex"
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-rmarkdown'
+Plug 'vim-pandoc/vim-markdownfootnotes'
+Plug 'plasticboy/vim-markdown'
+Plug 'gabrielelana/vim-markdown'
+Plug 'vim-pandoc/vim-pandoc-after'
+
 
 "Import
 

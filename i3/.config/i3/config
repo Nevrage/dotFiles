@@ -1,4 +1,5 @@
 vi: ft=i3config
+# Redirect all error to notify send in shxhkd and bspwmrc
 
 set $mod Mod4
 font pango:monospace 8

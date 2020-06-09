@@ -17,7 +17,31 @@ bspc config gapless_monocle      true
 
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
 bspc rule -a mpv state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+
+pc config bottom_padding          0
+bspc config auto_cancel             true
+bspc config focus_follows_pointer   false
+bspc config pointer_follows_monitor true
+bspc config auto_alternate          true
+
+trap 'jobs -p | xargs kill' EXIT
+
+# https://github.com/desyncr/bspwmrc/blob/master/init
+# https://github.com/janpansa/bspwm/blob/master/bspwmrc
+# https://github.com/odsod/bspwmrc
+# https://github.com/altrgeek/bspwm-polybar/blob/master/.config/bspwm/bspwmrc
+# https://github.com/keystroke3/dotfiles/blob/master/bspwm/autostart.sh
+# https://github.com/keystroke3/dotfiles/blob/master/bspwm/bspwmrc
+# https://github.com/styamsingh/dotfiles/blob/master/bspwm/bspwmrc
+# https://github.com/lll2yu/dotfiles-naavi/blob/master/.config/bspwm/bspwmrc
+# https://github.com/morpheusthewhite/dotfiles/blob/master/.config/bspwm/bspwmrc
+# https://github.com/morpheusthewhite/dotfiles/blob/master/.config/bspwm/bspwm.conf
+# https://github.com/yousufinternet/config-files/blob/master/.config/bspwm/bspwmrc
+# https://github.com/connor-brooks/dotfiles/blob/master/bspwmrc
+# https://github.com/null4bl3/dotfiles/tree/master/bspwm
+# https://github.com/onosendi/dotfiles/tree/master/.config/bspwm
+# https://github.com/Andrflor/arch-setup/blob/master/config/home/.config/bspwm/bspwmrc
+
