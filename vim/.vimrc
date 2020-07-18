@@ -5,7 +5,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-
 for fpath in split(globpath('~/.vim/', '*.vim'), '\n')
   exe 'source' fpath
 endfor
@@ -49,3 +48,9 @@ let g:Rout_more_colors = 1
 let g:task_rc_override = 'rc.defaultwidth=0'
 
 set shortmess=I " Read :help shortmess for everything else.
+"vmap <C-s> :call system("xclip -selection clipboard", @")<CR>
+" map <F7> :w !xclip <CR><CR>
+" vmap <F7> "*y
+" map <S-F7> :r!xclip -o<CR>
+vmap <F6> :!xclip -f -sel clip<CR>
+map <F7> :-1r !xclip -o -sel clip<cr>
