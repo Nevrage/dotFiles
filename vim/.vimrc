@@ -54,3 +54,33 @@ set shortmess=I " Read :help shortmess for everything else.
 " map <S-F7> :r!xclip -o<CR>
 vmap <F6> :!xclip -f -sel clip<CR>
 map <F7> :-1r !xclip -o -sel clip<cr>
+nmap <F8> :TagbagToggle<CR>
+
+"autocmd FileType txt setlocal foldmethod=marker
+"autocmd FileType txt setlocal foldmarker={{{,}}}
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+set viewoptions=cursor,options,curdir
+function! MarkdownLevel()
+    if getline(v:lnum) =~ '^# .*$'
+        return ">1"
+    endif
+    if getline(v:lnum) =~ '^## .*$'
+        return ">2"
+    endif
+    if getline(v:lnum) =~ '^### .*$'
+        return ">3"
+    endif
+    if getline(v:lnum) =~ '^#### .*$'
+        return ">4"
+    endif
+    if getline(v:lnum) =~ '^##### .*$'
+        return ">5"
+    endif
+    if getline(v:lnum) =~ '^###### .*$'
+        return ">6"
+    endif
+    return "="
+endfunction
+au BufEnter *.txt setlocal foldexpr=MarkdownLevel()
+au BufEnter *.txt setlocal foldmethod=expr

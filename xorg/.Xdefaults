@@ -1,4 +1,4 @@
-Xft.dpi: 180
+Xft.dpi: 96
 XTerm*faceName: FuraCode Nerd Font
 XTerm*faceSize: 12
 XTerm*selectToClipboard: true
@@ -10,7 +10,7 @@ URxvt.font:xft: DejaVuSansMono Nerd Font
 
 rofi.width: 75
 rofi.columns: 1
-rofi.font: Noto Sans 30
+rofi.font: Noto Sans 12
 rofi.bw: 0
 rofi.padding: 200
 rofi.eh: 1

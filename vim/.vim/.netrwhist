@@ -1,5 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/ylan/Notes'
+let g:netrw_dirhist_6='/data/Shares/ylan'
+let g:netrw_dirhist_5='/data/Shares/ylan/Perso'
+let g:netrw_dirhist_4='/data/Shares/ylan/Perso/Notes'
 let g:netrw_dirhist_3='/home/ylan/Data/Instances/Windows-Base/setup'
 let g:netrw_dirhist_2='/home/ylan/Data/Projects/DistroDeploy/Dev-Env/r-ide'
 let g:netrw_dirhist_1='/root/.vim'

@@ -53,10 +53,10 @@ setOutputColors256( normal = escaped[[3]],
                                        }
 
 if(file.exists("~/.cache/wal/colors.json")){
-makecolors()
+        makecolors()
+        rm(makecolors)
 }}
 
-rm(makecolors)
 
 
 
@@ -72,7 +72,7 @@ options(htmlhelp=TRUE)
 
 options(tab.width = 2)
 options(width = 130)
-options(graphics.record=TRUE) 
+options(graphics.record=TRUE)
 
 .First  <- function(){
 cat(noquote(paste("Login time:", Sys.time(),"\n")))

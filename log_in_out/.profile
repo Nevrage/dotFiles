@@ -5,28 +5,26 @@ export READER="zathura"
 export IMGVIEWER="feh"
 export HomeServer="home.ym"
 export torrent="home.ym"
-export DE="i3"
 export PATH="$PATH:$HOME/Scripts"
 export EDITOR="vim"
-export TERMINAL="xterm"
+export TERMINAL="alacritty"
 # export BROWSER="linkhandler"
-export TRUEBROWSER="firefox"
+export TRUEBROWSER="qutebrowser"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export SHELL=bash
 export NOTES="/home/ylan/Data/Perso/Notes/"
-export dyn="/home/ylan/dyn"
+export dyn="~/dyn"
 export LANG=C
+export DE1="bspwm"
+export DE2="openbox"
 
-# [ -f ~/.bashrc ] && source ~/.bashrc
-
-# wal -Rn  2> /dev/null
 wal -Rn  > /dev/null 2>&1
-# exec ~/Scripts/newmail.sh &
-# TMSU mount here?
 
-# # Start graphical server if i3 not already running.
-# if [ "$(tty)" = "/dev/tty1" ]; then
-#  pgrep -x $DE || exec startx
-# fi
+export DE=DE
 
-
+# TODO: don't try if $DE$i does not exist
+if tty  | grep -q 'tty'; then
+   export i=$(echo $(tty) | awk '{print substr($0,length,1)}')
+   export WM=$DE$i
+   startx
+fi

@@ -9,6 +9,11 @@ Plug 'ryanoasis/vim-devicons/'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 
+Plug 'voldikss/vim-floaterm'
+Plug 'majutsushi/tagbar'
+
+
+
 " Multiple Plug commands can be written in a single line using | separators
 "Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
