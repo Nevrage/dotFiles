@@ -34,7 +34,7 @@ macro a set browser "tsp youtube-dl --add-metadata -xic"; open-in-browser ; set 
 macro v set browser "setsid nohup mpv"; open-in-browser ; set browser linkhandler
 macro w set browser "w3m"; open-in-browser ; set browser linkhandler
 # macro p set browser "dmenuhandler"; open-in-browser ; set browser linkhandler
-macro c set browser "copy(){ echo $1 | xclip ;}; copy "; open-in-browser ; set browser linkhandler
+# macro c set browser "copy(){ echo $1 | xclip ;}; copy "; open-in-browser ; set browser linkhandler
 macro m set browser "mpv --ytdl --ontop --no-border --force-window --autofit=960x540 --geometry=-20-50 %u > /dev/null &"; open-in-browser ; set browser "$BROWSER %u"``
 
 #urls-source "ttrss"
@@ -45,3 +45,4 @@ macro m set browser "mpv --ytdl --ontop --no-border --force-window --autofit=960
 #ttrss-flag-star "s"
 #ttrss-flag-publish "p"
 # urls-source "opml"
+cache-file "~/.local/shared/cache.db"

@@ -88,6 +88,10 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# move around between windows
+super + {_,shift + } Tab
+    bspc node -f {next,prev}.local
+
 # https://github.com/desyncr/bspwmrc/blob/master/sxhkdrc
 # https://github.com/altrgeek/bspwm-polybar/blob/master/.config/sxhkd/sxhkdrc
 # https://github.com/lll2yu/dotfiles-naavi/blob/master/.config/sxhkd/sxhkdrc

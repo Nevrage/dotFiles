@@ -2,6 +2,7 @@
 
 sxhkd &
 polybar example &
+picom &
 
 # Add clipboard manager here
 # Add barrier here
