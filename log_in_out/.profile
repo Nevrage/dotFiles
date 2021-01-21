@@ -20,11 +20,13 @@ export DE2="openbox"
 
 wal -Rn  > /dev/null 2>&1
 
-export DE=DE
+export DE=DE # what does this mean?
+export DE1=bspwm
+export DE2=openbox
 
 # TODO: don't try if $DE$i does not exist
-# if tty  | grep -q 'tty'; then
-#    export i=$(echo $(tty) | awk '{print substr($0,length,1)}')
-#    export WM=$DE$i
-#    startx
-# fi
+if tty  | grep -q 'tty'; then
+   export i=$(echo $(tty) | awk '{print substr($0,length,1)}')
+   export WM=$DE$i
+   startx
+fi
