@@ -12,8 +12,8 @@ function parse_git_branch() {
 set -o vi
 
 
-cat ~/.cache/wal/sequences 2> /dev/null
-source ~/.cache/wal/colors-tty.sh 2> /dev/null
+# cat ~/.cache/wal/sequences 2> /dev/null
+# source ~/.cache/wal/colors-tty.sh 2> /dev/null
 
 PATH="$HOME/bin:$PATH"
 
@@ -35,20 +35,9 @@ QR () {
 source ~/Scripts/bash2rc 2> /dev/null
 source ~/.bash2rc 2> /dev/null
 source .local.sh 2> /dev/null
-
-tsks() {
-        tasks $* | grep -P --colour=always '(?:^|(?<=[\\, ;\-\+\*\/]))[-+]?[0-9]*[\.eE]?[0-9]+|$'
-}
+# source ~/.profile
 
 export PATH="$PATH:$HOME/Scripts"
-
-#X=$( pidof Xorg )
-#if [ ${#X} -gt 0 ]; then
-#    echo ""
-#else
-        source ~/.profile
-#fi
-#clear
 
 function cd() {
   command cd "$@" || return
@@ -83,3 +72,27 @@ function drm() {
 
               [ -n "$cid" ] && sudo docker rm "$cid"
       }
+
+export BROWSER="qutebrowser"
+export termbrowser="w3m"
+export PLAYER="mpv"
+export READER="zathura"
+export IMGVIEWER="feh"
+export HomeServer="home.ym"
+export torrent="home.ym"
+export PATH="$PATH:$HOME/Scripts"
+export EDITOR="vim"
+export TERM="kitty"
+export TERMINAL="kitty"
+# export BROWSER="linkhandler"
+export TRUEBROWSER="qutebrowser"
+export BIB="$HOME/Documents/LaTeX/uni.bib"
+export SHELL=bash
+export NOTES="/home/ylan/Data/Perso/Notes/"
+export dyn="~/dyn"
+export LANG=C
+export DE1="bspwm"
+export DE2="openbox"
+export DE=DE # what does this mean?
+export DE1=bspwm
+export DE2=openbox

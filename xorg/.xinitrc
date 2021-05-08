@@ -8,4 +8,6 @@ xset s off
 xset s noblank
 # xrdb ~/.Xresources-xrdp
 # TODO: execute (auto)start.sh if it exists
-exec ${!WM} # if the variable is defined
+# exec ${!WM} # if the variable is defined
+# exec bspwm
+exec ${!WM} # where WM is defined in .profile

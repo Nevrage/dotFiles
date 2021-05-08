@@ -3,6 +3,8 @@
 sxhkd &
 polybar example &
 picom &
+mpd &
+blueman-applet &
 
 # Add clipboard manager here
 # Add barrier here

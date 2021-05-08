@@ -8,10 +8,10 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 shopt -s checkwinsize 2> /dev/null
 
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 source ~/.alias.sh 2> /dev/null
-# source ~/.profile.sh 2> /dev/null
+source ~/.profile.sh 2> /dev/null
 source ~/.sh.sh 2> /dev/null
 source /usr/share/fzf/completion.bash 2> /dev/null
 source /usr/share/fzf/key-bindings.bash 2> /dev/null
@@ -53,12 +53,6 @@ function parse_git_dirty {
 
 
 
-function reloadi3() {
-killall polybar
-xrdb -merge ~/.cache/wal/colors.Xresources  2> /dev/null
-i3-msg reload
-i3-msg restart
-}
 ansi()          { echo -e "\e[${1}m${*:2}\e[0m"; }
 bold()          { ansi 1 "$@"; }
 italic()        { ansi 3 "$@"; }
@@ -66,4 +60,3 @@ italic()        { ansi 3 "$@"; }
 # export PS1="\[$(tput setaf 1)\][\[$(tput setaf 2)\]\A\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\u\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\h\[$(tput setaf 1)\]]\[$(tput sgr0)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\W\[$(tput setaf 1)\]]\[$(tput sgr0)\] \`parse_git_branch\` \[$reset\]\n\[$green\] > \[$black\]"
 
  export PS1="┌──\[\e[35m\]\u\[\e[m\]\[\e[31;40m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[31;40m\]\\$\[\e[m\]\W\[\e[30;47m\]\`parse_git_branch\`\[\e[m\]\n└─╼ "
-
