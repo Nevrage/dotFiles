@@ -69,3 +69,4 @@ alias dlmp3="sudo docker run --rm -v Downloads:/data vimagick/youtube-dl --extra
 alias mail="mbsync perso & neomutt"
 alias news="newsboat -u ~/.local/shared/urls"
 alias mail="mbsync -a & neomutt"
+alias kk="khal interactive"

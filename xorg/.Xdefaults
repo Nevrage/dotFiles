@@ -6,11 +6,9 @@ XTerm*visualBell: false
 Xterm*Bell: false
 
 
-URxvt.font:xft: DejaVuSansMono Nerd Font
-
 rofi.width: 75
 rofi.columns: 1
-rofi.font: Noto Sans 12
+rofi.font: FiraCode Nerd Font 20
 rofi.bw: 0
 rofi.padding: 200
 rofi.eh: 1
@@ -20,7 +18,7 @@ rofi.fullscreen: false
 rofi.fake-transparency: true
 rofi.show-icons: false
 
-Xcursor.size: 80
+Xcursor.size: 20
 
 XTerm.vt100.translations: #override \n\
     Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\

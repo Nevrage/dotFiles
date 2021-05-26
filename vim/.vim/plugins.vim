@@ -7,6 +7,7 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'mhinz/vim-startify'
 Plug 'ryanoasis/vim-devicons/'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'dylanaraps/wal.vim'
 
 
 Plug 'voldikss/vim-floaterm'

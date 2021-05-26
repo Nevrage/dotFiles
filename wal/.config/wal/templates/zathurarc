@@ -1,0 +1,16 @@
+set recolor true
+set adjust-open "width-mode"
+set guioptions none
+set recolor-lightcolor "{color0}"
+set recolor-darkcolor "{color1}"
+set default-bg "{color0}"
+
+map <C-e> exec "devour evince '$FILE'"
+
+set completion-bg "{color0}"
+set completion-bg-highlight "{color0}"
+set completion-bg-group "{color0}"
+
+set completion-fg "{color1}"
+set completion-fg-highlight "{color1}"
+set completion-fg-group "{color1}"

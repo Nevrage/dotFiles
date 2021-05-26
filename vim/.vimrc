@@ -84,3 +84,5 @@ function! MarkdownLevel()
 endfunction
 au BufEnter *.txt setlocal foldexpr=MarkdownLevel()
 au BufEnter *.txt setlocal foldmethod=expr
+
+colorscheme wal

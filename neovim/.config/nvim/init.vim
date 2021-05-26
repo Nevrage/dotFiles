@@ -11,7 +11,8 @@ Plug 'gaalcaras/ncm-R'
 Plug 'sirver/UltiSnips'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'sirver/UltiSnips'
-Plug 'jalvesaq/Nvim-R' " swissknife for vim and R communicationPlug 'Shougo/unite.vim' " for citation using citation.vim
+Plug 'jalvesaq/Nvim-R' " swissknife for vim and R communication
+Plug 'Shougo/unite.vim' " for citation using citation.vim
 Plug 'chrisbra/csv.vim' "for viewing data directly in vim R (Nvim-R)
 Plug 'junegunn/goyo.vim' "for nice zoom effet when editing, see screenshot below
 Plug 'ferrine/md-img-paste.vim' "paste directly image in system clipboard to rmarkdown by putting images in an /img folder (created automatically
@@ -89,8 +90,8 @@ endfunction
 autocmd InsertCharPre * call OpenCompletion()
 
 
-autocmd FileType r call StartR('R')
-autocmd FileType rmd call StartR('R')
+#autocmd FileType r call StartR('R')
+#autocmd FileType rmd call StartR('R')
 autocmd FileType r imap <bar> %>%
 let R_app = "radian"
 let R_cmd = "R"

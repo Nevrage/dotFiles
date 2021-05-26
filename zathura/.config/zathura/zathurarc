@@ -1,23 +1,16 @@
 set recolor true
 set adjust-open "width-mode"
 set guioptions none
-set recolor-lightcolor "#1e1e1e"
-set recolor-darkcolor "#f44747"
+set recolor-lightcolor "#10192a"
+set recolor-darkcolor "#DA8D7A"
+set default-bg "#10192a"
 
+map <C-e> exec "devour evince '$FILE'"
 
-# midnight mode
-map <F1> feedkeys ":set recolor-lightcolor \#002b36<Return>"
-map <F2> feedkeys ":set recolor-darkcolor \#839496<Return>"
-map ! feedkeys "<F1><F2>"
-# amber on dark slate
-map <F3> feedkeys ":set recolor-lightcolor \#0a0a12<Return>"
-map <F4> feedkeys ":set recolor-darkcolor \#ff9900<Return>"
-map @ feedkeys "<F3><F4>"
-# green on black
-map <F6> feedkeys ":set recolor-lightcolor #000000<Return>"
-map <F7> feedkeys ":set recolor-darkcolor \#00B800<Return>"
-map \# feedkeys "<F6><F7>"
-# original (black on white)
-map <F8> feedkeys ":set recolor-lightcolor \#ffffff<Return>"
-map <F9> feedkeys ":set recolor-darkcolor \#000000<Return>"
-map $ feedkeys "<F8><F9>"
+set completion-bg "#10192a"
+set completion-bg-highlight "#10192a"
+set completion-bg-group "#10192a"
+
+set completion-fg "#DA8D7A"
+set completion-fg-highlight "#DA8D7A"
+set completion-fg-group "#DA8D7A"

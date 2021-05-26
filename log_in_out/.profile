@@ -6,7 +6,7 @@ if [[ $(findmnt /data) ]]; then
     echo "NAS is already mounted"
 else
     sleep 1
-    sshfs ylan@home.ym:/data /data
+    sshfs ylan@home.ym:/data /data -o allow_other
     sleep 1
 fi
 
@@ -14,5 +14,6 @@ fi
 if tty  | grep -q 'tty'; then
    export i=$(echo $(tty) | awk '{print substr($0,length,1)}')
    export WM=$DE$i
+   echo $WM
    startx
 fi

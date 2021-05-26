@@ -1,32 +1,39 @@
 #! /bin/sh
 
+
+# Put some of this in ~/.xinitrc is the settings are WM/DE agnostic?
+
+# wal -Rn?  // xrdb
+# greenclip
+dunst &
+# libinput-gestures
 sxhkd &
 polybar example &
 picom &
 mpd &
-blueman-applet &
+xwallpaper --stretch $(cat ~/.cache/wal/wal) &
+# blueman-applet &
 
-# Add clipboard manager here
-# Add barrier here
+xsetroot -cursor_name left_ptr
+unclutter &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
-bspc config border_width         2
+bspc config border_width         0
 bspc config window_gap          12
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
+# bspc rule -a Chromium desktop='^2' // focus-on //floating
 bspc rule -a mpv state=floating
+bspc rule -a pavucontrol state=floating
 bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
 
 pc config bottom_padding          0
 bspc config auto_cancel             true
-bspc config focus_follows_pointer   false
+bspc config focus_follows_pointer   true
 bspc config pointer_follows_monitor true
 bspc config auto_alternate          true
 

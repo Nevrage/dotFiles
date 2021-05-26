@@ -95,4 +95,4 @@ export DE1="bspwm"
 export DE2="openbox"
 export DE=DE # what does this mean?
 export DE1=bspwm
-export DE2=openbox
+export DE2=openbox-session
