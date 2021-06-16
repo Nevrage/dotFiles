@@ -1,3 +1,6 @@
-polybar example &
+tint2 &
 sxhkd &
+dunst &
+picom &
+mpd &
 xwallpaper --stretch $(cat ~/.cache/wal/wal) &
