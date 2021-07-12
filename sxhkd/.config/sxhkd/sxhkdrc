@@ -16,15 +16,51 @@ super + shift + m
     kitty --title Music miniplayer
 
 # https://github.com/Roger/escrotum
+#
 @Print
-    scrot -s '/home/ylan/Images/Screenshots/%F_%T.png' -e 'xclip -selection clipboard -target image/png -i $f'
+    scrot -s '/home/ylan/Pictures/Screenshots/%F_%T.png' -e 'xclip -selection clipboard -target image/png -i $f'
+# Screenshot area to keep
+# Screenshot area to throw
+# Screenshot with delay to keep/throw?
+# Screenshot of screen to keep
+# find a way to use gimp or something?
+
+# betterlockscreen
+# toggle picom?
+# Monitor manager?
+# Bookmark/cache menu: qutebrowser, music, mpv
+# music/mpd
+# # Pulse Controls
+# super + {F3, F2}
+#   pulsevolctrl "output-vol" "alsa_output.pci-0000_0b_00.4.analog-stereo" {+2%, -2%}
+#
+#   super + F4
+#     pulsevolctrl "output-mute" "alsa_output.pci-0000_0b_00.4.analog-stereo"
+#
+#super + F5
+#  playerctl -p "mpd" stop
+#
+#  super + slash
+#    songnotification
+#
+#    # Brightness
+#    # super + {Right, Left}
+#    #   light {-A 5, -U 5} && polybar-msg hook backlight 1
+#    super + e
+#      kill -s USR1 $(pidof deadd-notification-center)
+#      super + alt + {k, o, g, b, f, v, s, d}
+#        {kdenlive, obs, gimp, $BROWSER, pcmanfm, virtualbox, spotify, discord-canary}
+# super + alt + {a, r, t, h, n, c, j, p}
+#   $TERMINAL -e {alsamixer, lf, transmission-remote-cli, htop, nvim, calcurse, nvim $XDG_DATA_HOME/vimwiki/index.wiki, pulsemixer}
+#
+# systemd units in rofi
 
 # program launcher
-@super + @space
+super + space
 	rofi -show run
 
 super + shift + @space
-	rofi -show window
+    rofi -show window -width 1500
 
 super + b
 	$BROWSER
@@ -85,6 +121,10 @@ super + ctrl + {h,j,k,l}
 # preselect the ratio
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
+
+ctrl + alt + {1-9}
+	sudo chvt {1-9}
+
 # cancel the preselection for the focused node
 super + ctrl + space
 	bspc node -p cancel

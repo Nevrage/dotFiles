@@ -14,4 +14,5 @@ xset -dpms
 # exec ${!WM}
 exec bspwm
 # exec ${!WM} # where WM is defined in .profile
+# exec openbox-session
 

@@ -1,22 +1,24 @@
 Xft.dpi: 96
-XTerm*faceName: FuraCode Nerd Font
+XTerm*faceName: FiraCode Nerd Font
 XTerm*faceSize: 12
 XTerm*selectToClipboard: true
 XTerm*visualBell: false
 Xterm*Bell: false
 
 
-rofi.width: 75
+rofi.width: 30
 rofi.columns: 1
 rofi.font: FiraCode Nerd Font 20
-rofi.bw: 0
-rofi.padding: 200
+rofi.bw: 1
+rofi.padding: 0
 rofi.eh: 1
-rofi.separator-style: soli
 rofi.hide-scrollbar: true
 rofi.fullscreen: false
 rofi.fake-transparency: true
 rofi.show-icons: false
+rofi.fixed-num-lines: false
+rofi.lines: 17
+rofi.yoffset: -300
 
 Xcursor.size: 20
 

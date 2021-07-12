@@ -4,7 +4,7 @@ case $- in
   esac
 HISTCONTROL=ignoreboth
 shopt -s histappend 2> /dev/null
-HISTSIZE=1000
+HISTSIZE=100000
 HISTFILESIZE=2000
 shopt -s checkwinsize 2> /dev/null
 
